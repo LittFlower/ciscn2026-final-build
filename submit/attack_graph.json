@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "incident_id": "build-final-2026-local-benchmark",
+  "incident_id": "source-oracle-test",
   "nodes": [
     {
       "id": "ip:198.51.100.77",
@@ -88,11 +88,6 @@
       "label": "/tmp/.cache/.stage/full.tar"
     },
     {
-      "id": "file:/tmp/ci.sh",
-      "type": "file",
-      "label": "/tmp/ci.sh"
-    },
-    {
       "id": "process:procdump.exe",
       "type": "process",
       "label": "procdump.exe"
@@ -108,11 +103,6 @@
       "label": "crm_ro"
     },
     {
-      "id": "account:bi_sync",
-      "type": "account",
-      "label": "bi_sync"
-    },
-    {
       "id": "account:svc_deploy",
       "type": "account",
       "label": "svc_deploy"
@@ -121,6 +111,16 @@
       "id": "account:CORP\\svc_backup",
       "type": "account",
       "label": "CORP\\svc_backup"
+    },
+    {
+      "id": "account:bi_sync",
+      "type": "account",
+      "label": "bi_sync"
+    },
+    {
+      "id": "account:role/oss-backup-reader",
+      "type": "account",
+      "label": "role/oss-backup-reader"
     },
     {
       "id": "token:system:serviceaccount:prod:ci-runner",
@@ -140,7 +140,7 @@
   ],
   "edges": [
     {
-      "id": "R01",
+      "id": "G01",
       "from": "ip:198.51.100.77",
       "to": "host:web-prod-01",
       "action": "scan",
@@ -149,11 +149,19 @@
       "time_end": "2026-07-06T09:05:49+08:00",
       "evidence_ids": [
         "E001",
-        "E006"
+        "E002",
+        "E003",
+        "E004",
+        "E005",
+        "E006",
+        "E007",
+        "E008",
+        "E009",
+        "E010"
       ]
     },
     {
-      "id": "R02",
+      "id": "G02",
       "from": "ip:198.51.100.77",
       "to": "host:web-prod-01",
       "action": "exploit_public_service",
@@ -162,38 +170,40 @@
       "time_end": "2026-07-06T09:14:24+08:00",
       "evidence_ids": [
         "E011",
+        "E012",
         "E013",
         "E014"
       ]
     },
     {
-      "id": "R03",
+      "id": "G03",
       "from": "host:web-prod-01",
       "to": "ip:203.0.113.60",
-      "action": "command_and_control",
+      "action": "command_execution",
       "stage": "execution",
       "time_start": "2026-07-06T09:16:10+08:00",
       "time_end": "2026-07-06T09:16:14+08:00",
       "evidence_ids": [
         "E015",
         "E016",
-        "E019"
+        "E017"
       ]
     },
     {
-      "id": "R03b",
+      "id": "G04",
       "from": "host:web-prod-01",
       "to": "ip:198.51.100.77",
       "action": "command_and_control",
       "stage": "execution",
       "time_start": "2026-07-06T09:16:26+08:00",
-      "time_end": "2026-07-06T09:16:26+08:00",
+      "time_end": "2026-07-06T09:16:30+08:00",
       "evidence_ids": [
-        "E017"
+        "E018",
+        "E019"
       ]
     },
     {
-      "id": "R04",
+      "id": "G05",
       "from": "host:web-prod-01",
       "to": "file:/var/www/oa/public/.cache.php",
       "action": "webshell_upload",
@@ -202,11 +212,12 @@
       "time_end": "2026-07-06T09:20:17+08:00",
       "evidence_ids": [
         "E020",
-        "E021"
+        "E021",
+        "E022"
       ]
     },
     {
-      "id": "R05",
+      "id": "G06",
       "from": "host:web-prod-01",
       "to": "account:deploy",
       "action": "credential_dump",
@@ -218,7 +229,7 @@
       ]
     },
     {
-      "id": "R06",
+      "id": "G07",
       "from": "account:deploy",
       "to": "host:ops-jump-01",
       "action": "lateral_movement",
@@ -232,7 +243,7 @@
       ]
     },
     {
-      "id": "R07",
+      "id": "G08",
       "from": "host:web-prod-01",
       "to": "account:crm_ro",
       "action": "credential_use",
@@ -240,12 +251,12 @@
       "time_start": "2026-07-06T09:51:00+08:00",
       "time_end": "2026-07-06T09:51:01+08:00",
       "evidence_ids": [
-        "E038",
-        "E037"
+        "E037",
+        "E038"
       ]
     },
     {
-      "id": "R07b",
+      "id": "G09",
       "from": "account:crm_ro",
       "to": "database:mysql-core-01",
       "action": "credential_use",
@@ -257,7 +268,7 @@
       ]
     },
     {
-      "id": "R07c",
+      "id": "G10",
       "from": "host:web-prod-01",
       "to": "database:mysql-core-01",
       "action": "database_discovery",
@@ -266,24 +277,13 @@
       "time_end": "2026-07-06T09:55:45+08:00",
       "evidence_ids": [
         "E039",
-        "E040"
-      ]
-    },
-    {
-      "id": "R07d",
-      "from": "host:web-prod-01",
-      "to": "database:mysql-core-01",
-      "action": "database_discovery",
-      "stage": "discovery",
-      "time_start": "2026-07-06T09:55:15+08:00",
-      "time_end": "2026-07-06T09:55:30+08:00",
-      "evidence_ids": [
+        "E040",
         "E041",
         "E042"
       ]
     },
     {
-      "id": "R08",
+      "id": "G11",
       "from": "host:ops-jump-01",
       "to": "account:CORP\\svc_backup",
       "action": "credential_dump",
@@ -292,11 +292,12 @@
       "time_end": "2026-07-06T10:02:34+08:00",
       "evidence_ids": [
         "E043",
+        "E044",
         "E045"
       ]
     },
     {
-      "id": "R09",
+      "id": "G12",
       "from": "account:CORP\\svc_backup",
       "to": "host:ad-dc-01",
       "action": "credential_use",
@@ -304,13 +305,14 @@
       "time_start": "2026-07-06T10:08:06+08:00",
       "time_end": "2026-07-06T10:08:11+08:00",
       "evidence_ids": [
+        "E051",
+        "E052",
         "E053",
-        "E054",
-        "E056"
+        "E054"
       ]
     },
     {
-      "id": "R10",
+      "id": "G13",
       "from": "host:ops-jump-01",
       "to": "host:ad-dc-01",
       "action": "domain_discovery",
@@ -318,13 +320,13 @@
       "time_start": "2026-07-06T10:13:00+08:00",
       "time_end": "2026-07-06T10:13:40+08:00",
       "evidence_ids": [
-        "E065",
-        "E066",
-        "E067"
+        "E060",
+        "E061",
+        "E062"
       ]
     },
     {
-      "id": "R11",
+      "id": "G14",
       "from": "host:ops-jump-01",
       "to": "host:win-admin-01",
       "action": "lateral_movement",
@@ -337,7 +339,21 @@
       ]
     },
     {
-      "id": "R12",
+      "id": "G15",
+      "from": "account:CORP\\svc_backup",
+      "to": "host:win-admin-01",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "time_start": "2026-07-06T10:22:00+08:00",
+      "time_end": "2026-07-06T10:22:03+08:00",
+      "evidence_ids": [
+        "E068",
+        "E069",
+        "E070"
+      ]
+    },
+    {
+      "id": "G16",
       "from": "host:win-admin-01",
       "to": "process:procdump.exe",
       "action": "credential_dump",
@@ -345,13 +361,13 @@
       "time_start": "2026-07-06T10:27:00+08:00",
       "time_end": "2026-07-06T10:27:02+08:00",
       "evidence_ids": [
-        "E071",
-        "E072",
-        "E073"
+        "E073",
+        "E074",
+        "E075"
       ]
     },
     {
-      "id": "R13",
+      "id": "G17",
       "from": "host:win-admin-01",
       "to": "host:file-srv-01",
       "action": "data_collection",
@@ -365,7 +381,7 @@
       ]
     },
     {
-      "id": "R14",
+      "id": "G18",
       "from": "host:win-admin-01",
       "to": "file:C:\\Temp\\finance_q2.7z",
       "action": "data_staging",
@@ -373,11 +389,11 @@
       "time_start": "2026-07-06T10:49:00+08:00",
       "time_end": "2026-07-06T10:49:00+08:00",
       "evidence_ids": [
-        "E084"
+        "E086"
       ]
     },
     {
-      "id": "R14b",
+      "id": "G19",
       "from": "host:win-admin-01",
       "to": "host:ops-jump-01",
       "action": "data_staging",
@@ -385,24 +401,23 @@
       "time_start": "2026-07-06T10:49:30+08:00",
       "time_end": "2026-07-06T10:49:30+08:00",
       "evidence_ids": [
-        "E085"
+        "E087"
       ]
     },
     {
-      "id": "R15",
+      "id": "G20",
       "from": "host:ops-jump-01",
       "to": "account:svc_deploy",
       "action": "credential_dump",
       "stage": "credential_access",
       "time_start": "2026-07-06T10:05:00+08:00",
-      "time_end": "2026-07-06T10:05:18+08:00",
+      "time_end": "2026-07-06T10:05:00+08:00",
       "evidence_ids": [
-        "E048",
-        "E049"
+        "E048"
       ]
     },
     {
-      "id": "R16",
+      "id": "G21",
       "from": "account:svc_deploy",
       "to": "host:gitlab-01",
       "action": "credential_use",
@@ -414,7 +429,21 @@
       ]
     },
     {
-      "id": "R17",
+      "id": "G22",
+      "from": "host:ops-jump-01",
+      "to": "host:gitlab-01",
+      "action": "devops_discovery",
+      "stage": "discovery",
+      "time_start": "2026-07-06T10:10:00+08:00",
+      "time_end": "2026-07-06T10:10:24+08:00",
+      "evidence_ids": [
+        "E055",
+        "E056",
+        "E057"
+      ]
+    },
+    {
+      "id": "G23",
       "from": "host:gitlab-01",
       "to": "host:jenkins-01",
       "action": "ci_pipeline_execution",
@@ -422,12 +451,12 @@
       "time_start": "2026-07-06T10:18:00+08:00",
       "time_end": "2026-07-06T10:18:21+08:00",
       "evidence_ids": [
-        "E058",
-        "E059"
+        "E063",
+        "E064"
       ]
     },
     {
-      "id": "R18",
+      "id": "G24",
       "from": "host:jenkins-01",
       "to": "host:ci-runner-01",
       "action": "ci_pipeline_execution",
@@ -435,54 +464,100 @@
       "time_start": "2026-07-06T10:18:21+08:00",
       "time_end": "2026-07-06T10:24:05+08:00",
       "evidence_ids": [
-        "E059",
-        "E074",
-        "E075"
+        "E064",
+        "E071",
+        "E072"
       ]
     },
     {
-      "id": "R19",
+      "id": "G25",
+      "from": "host:ci-runner-01",
+      "to": "ip:203.0.113.60",
+      "action": "command_execution",
+      "stage": "execution",
+      "time_start": "2026-07-06T10:24:00+08:00",
+      "time_end": "2026-07-06T10:24:05+08:00",
+      "evidence_ids": [
+        "E071",
+        "E072"
+      ]
+    },
+    {
+      "id": "G26",
       "from": "host:ci-runner-01",
       "to": "token:system:serviceaccount:prod:ci-runner",
       "action": "credential_dump",
       "stage": "credential_access",
       "time_start": "2026-07-06T10:28:00+08:00",
+      "time_end": "2026-07-06T10:28:00+08:00",
+      "evidence_ids": [
+        "E076"
+      ]
+    },
+    {
+      "id": "G27",
+      "from": "token:system:serviceaccount:prod:ci-runner",
+      "to": "cluster:k8s-master-01",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "time_start": "2026-07-06T10:28:12+08:00",
       "time_end": "2026-07-06T10:28:12+08:00",
       "evidence_ids": [
-        "E076",
         "E077"
       ]
     },
     {
-      "id": "R20",
+      "id": "G28",
       "from": "token:system:serviceaccount:prod:ci-runner",
       "to": "cluster:k8s-master-01",
       "action": "cloud_discovery",
       "stage": "discovery",
-      "time_start": "2026-07-06T10:28:12+08:00",
+      "time_start": "2026-07-06T10:34:00+08:00",
       "time_end": "2026-07-06T10:34:24+08:00",
       "evidence_ids": [
-        "E077",
         "E078",
+        "E079",
         "E080"
       ]
     },
     {
-      "id": "R21",
+      "id": "G29",
       "from": "token:system:serviceaccount:prod:ci-runner",
-      "to": "bucket:prod-backup",
-      "action": "cloud_collection",
-      "stage": "collection",
+      "to": "account:role/oss-backup-reader",
+      "action": "credential_use",
+      "stage": "credential_use",
       "time_start": "2026-07-06T10:42:00+08:00",
-      "time_end": "2026-07-06T11:15:00+08:00",
+      "time_end": "2026-07-06T10:42:00+08:00",
       "evidence_ids": [
-        "E086",
-        "E087",
-        "E088"
+        "E084"
       ]
     },
     {
-      "id": "R23",
+      "id": "G30",
+      "from": "account:role/oss-backup-reader",
+      "to": "bucket:prod-backup",
+      "action": "cloud_discovery",
+      "stage": "discovery",
+      "time_start": "2026-07-06T10:42:09+08:00",
+      "time_end": "2026-07-06T10:42:09+08:00",
+      "evidence_ids": [
+        "E085"
+      ]
+    },
+    {
+      "id": "G31",
+      "from": "account:role/oss-backup-reader",
+      "to": "bucket:prod-backup",
+      "action": "cloud_collection",
+      "stage": "collection",
+      "time_start": "2026-07-06T11:15:00+08:00",
+      "time_end": "2026-07-06T11:15:00+08:00",
+      "evidence_ids": [
+        "E090"
+      ]
+    },
+    {
+      "id": "G32",
       "from": "host:ops-jump-01",
       "to": "account:bi_sync",
       "action": "credential_use",
@@ -490,12 +565,25 @@
       "time_start": "2026-07-06T10:12:00+08:00",
       "time_end": "2026-07-06T10:12:01+08:00",
       "evidence_ids": [
-        "E060",
-        "E064"
+        "E058",
+        "E059"
       ]
     },
     {
-      "id": "R23b",
+      "id": "G33",
+      "from": "account:bi_sync",
+      "to": "database:pgsql-bi-01",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "time_start": "2026-07-06T10:12:00+08:00",
+      "time_end": "2026-07-06T10:12:01+08:00",
+      "evidence_ids": [
+        "E058",
+        "E059"
+      ]
+    },
+    {
+      "id": "G34",
       "from": "account:bi_sync",
       "to": "database:pgsql-bi-01",
       "action": "data_collection",
@@ -503,13 +591,13 @@
       "time_start": "2026-07-06T10:18:00+08:00",
       "time_end": "2026-07-06T10:19:20+08:00",
       "evidence_ids": [
-        "E061",
-        "E062",
-        "E063"
+        "E065",
+        "E066",
+        "E067"
       ]
     },
     {
-      "id": "R24",
+      "id": "G35",
       "from": "host:ops-jump-01",
       "to": "domain:archive-sync-bkt.storage.example",
       "action": "exfiltration",
@@ -517,12 +605,12 @@
       "time_start": "2026-07-06T11:08:00+08:00",
       "time_end": "2026-07-06T11:08:01+08:00",
       "evidence_ids": [
-        "E089",
-        "E090"
+        "E088",
+        "E089"
       ]
     },
     {
-      "id": "R25",
+      "id": "G36",
       "from": "host:ops-jump-01",
       "to": "file:/tmp/.cache/.stage/full.tar",
       "action": "data_staging",
@@ -536,20 +624,7 @@
       ]
     },
     {
-      "id": "R26",
-      "from": "host:ops-jump-01",
-      "to": "file:/tmp/ci.sh",
-      "action": "cleanup",
-      "stage": "defense_evasion",
-      "time_start": "2026-07-06T11:42:00+08:00",
-      "time_end": "2026-07-06T11:42:22+08:00",
-      "evidence_ids": [
-        "E094",
-        "E096"
-      ]
-    },
-    {
-      "id": "R27",
+      "id": "G37",
       "from": "host:ops-jump-01",
       "to": "domain:cdn-sync.example",
       "action": "exfiltration",
@@ -560,6 +635,7 @@
         "E097",
         "E098",
         "E099",
+        "E100",
         "E101"
       ]
     }

