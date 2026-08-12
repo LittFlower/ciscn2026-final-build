@@ -1,0 +1,11 @@
+account_id,account_name,type,department,normal_source,privilege_level,status
+acct-001,svc_deploy,service,运维部,ops-jump-01,medium,active
+acct-002,svc_backup,service,IT,backup-nas-01,high,active
+acct-003,admin.li,human,运维部,10.20.20.33,high,active
+acct-004,chen.yu,human,财务部,10.20.20.87,low,active
+acct-005,gitlab-runner,service,研发效能,ci-runner-01,medium,active
+acct-006,crm_ro,service,数据平台,crm-app-01,low,active
+acct-007,bi_sync,service,数据平台,mysql-core-01,medium,active
+acct-008,developer.zhao,human,研发部,10.20.20.59,medium,active
+acct-009,wang.mei,human,客服部,10.20.20.66,low,active
+acct-010,liu.qiang,human,市场部,10.20.20.68,low,active

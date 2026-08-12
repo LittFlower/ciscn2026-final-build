@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "sample",
+  "nodes": [
+    {
+      "id": "ip:sample",
+      "type": "ip",
+      "label": "sample"
+    },
+    {
+      "id": "host:sample",
+      "type": "host",
+      "label": "sample"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-sample-001",
+      "from": "ip:sample",
+      "to": "host:sample",
+      "action": "scan",
+      "stage": "recon",
+      "time_start": "2026-07-05T20:43:31+08:00",
+      "time_end": "2026-07-05T20:43:31+08:00",
+      "evidence_ids": [
+        "E001"
+      ]
+    }
+  ]
+}

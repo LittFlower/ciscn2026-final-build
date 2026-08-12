@@ -1,0 +1,567 @@
+{
+  "schema_version": "1.0",
+  "incident_id": "build-final-2026-local-benchmark",
+  "nodes": [
+    {
+      "id": "ip:198.51.100.77",
+      "type": "ip",
+      "label": "initial attacker"
+    },
+    {
+      "id": "ip:203.0.113.60",
+      "type": "ip",
+      "label": "payload host"
+    },
+    {
+      "id": "host:web-prod-01",
+      "type": "host",
+      "label": "web-prod-01"
+    },
+    {
+      "id": "host:ops-jump-01",
+      "type": "host",
+      "label": "ops-jump-01"
+    },
+    {
+      "id": "host:ad-dc-01",
+      "type": "host",
+      "label": "ad-dc-01"
+    },
+    {
+      "id": "host:win-admin-01",
+      "type": "host",
+      "label": "win-admin-01"
+    },
+    {
+      "id": "host:file-srv-01",
+      "type": "host",
+      "label": "file-srv-01"
+    },
+    {
+      "id": "host:gitlab-01",
+      "type": "host",
+      "label": "gitlab-01"
+    },
+    {
+      "id": "host:jenkins-01",
+      "type": "host",
+      "label": "jenkins-01"
+    },
+    {
+      "id": "host:ci-runner-01",
+      "type": "host",
+      "label": "ci-runner-01"
+    },
+    {
+      "id": "database:mysql-core-01",
+      "type": "database",
+      "label": "mysql-core-01"
+    },
+    {
+      "id": "database:pgsql-bi-01",
+      "type": "database",
+      "label": "pgsql-bi-01"
+    },
+    {
+      "id": "domain:archive-sync-bkt.storage.example",
+      "type": "domain",
+      "label": "archive-sync-bkt.storage.example"
+    },
+    {
+      "id": "domain:cdn-sync.example",
+      "type": "domain",
+      "label": "cdn-sync.example"
+    },
+    {
+      "id": "file:/var/www/oa/public/.cache.php",
+      "type": "file",
+      "label": "/var/www/oa/public/.cache.php"
+    },
+    {
+      "id": "file:C:\\Temp\\finance_q2.7z",
+      "type": "file",
+      "label": "C:\\Temp\\finance_q2.7z"
+    },
+    {
+      "id": "file:/tmp/.cache/.stage/full.tar",
+      "type": "file",
+      "label": "/tmp/.cache/.stage/full.tar"
+    },
+    {
+      "id": "file:/tmp/ci.sh",
+      "type": "file",
+      "label": "/tmp/ci.sh"
+    },
+    {
+      "id": "process:procdump.exe",
+      "type": "process",
+      "label": "procdump.exe"
+    },
+    {
+      "id": "account:deploy",
+      "type": "account",
+      "label": "deploy"
+    },
+    {
+      "id": "account:crm_ro",
+      "type": "account",
+      "label": "crm_ro"
+    },
+    {
+      "id": "account:bi_sync",
+      "type": "account",
+      "label": "bi_sync"
+    },
+    {
+      "id": "account:svc_deploy",
+      "type": "account",
+      "label": "svc_deploy"
+    },
+    {
+      "id": "account:CORP\\svc_backup",
+      "type": "account",
+      "label": "CORP\\svc_backup"
+    },
+    {
+      "id": "token:system:serviceaccount:prod:ci-runner",
+      "type": "token",
+      "label": "ci-runner service-account token"
+    },
+    {
+      "id": "cluster:k8s-master-01",
+      "type": "cluster",
+      "label": "k8s-master-01"
+    },
+    {
+      "id": "bucket:prod-backup",
+      "type": "bucket",
+      "label": "prod-backup"
+    }
+  ],
+  "edges": [
+    {
+      "id": "R01",
+      "from": "ip:198.51.100.77",
+      "to": "host:web-prod-01",
+      "action": "scan",
+      "stage": "recon",
+      "time_start": "2026-07-06T09:05:00+08:00",
+      "time_end": "2026-07-06T09:05:49+08:00",
+      "evidence_ids": [
+        "E001",
+        "E006"
+      ]
+    },
+    {
+      "id": "R02",
+      "from": "ip:198.51.100.77",
+      "to": "host:web-prod-01",
+      "action": "exploit_public_service",
+      "stage": "initial_access",
+      "time_start": "2026-07-06T09:14:22+08:00",
+      "time_end": "2026-07-06T09:14:24+08:00",
+      "evidence_ids": [
+        "E011",
+        "E013",
+        "E014"
+      ]
+    },
+    {
+      "id": "R03",
+      "from": "host:web-prod-01",
+      "to": "ip:203.0.113.60",
+      "action": "command_and_control",
+      "stage": "execution",
+      "time_start": "2026-07-06T09:16:10+08:00",
+      "time_end": "2026-07-06T09:16:14+08:00",
+      "evidence_ids": [
+        "E015",
+        "E016",
+        "E019"
+      ]
+    },
+    {
+      "id": "R03b",
+      "from": "host:web-prod-01",
+      "to": "ip:198.51.100.77",
+      "action": "command_and_control",
+      "stage": "execution",
+      "time_start": "2026-07-06T09:16:26+08:00",
+      "time_end": "2026-07-06T09:16:26+08:00",
+      "evidence_ids": [
+        "E017"
+      ]
+    },
+    {
+      "id": "R04",
+      "from": "host:web-prod-01",
+      "to": "file:/var/www/oa/public/.cache.php",
+      "action": "webshell_upload",
+      "stage": "persistence",
+      "time_start": "2026-07-06T09:20:05+08:00",
+      "time_end": "2026-07-06T09:20:17+08:00",
+      "evidence_ids": [
+        "E020",
+        "E021"
+      ]
+    },
+    {
+      "id": "R05",
+      "from": "host:web-prod-01",
+      "to": "account:deploy",
+      "action": "credential_dump",
+      "stage": "credential_access",
+      "time_start": "2026-07-06T09:31:24+08:00",
+      "time_end": "2026-07-06T09:31:24+08:00",
+      "evidence_ids": [
+        "E029"
+      ]
+    },
+    {
+      "id": "R06",
+      "from": "account:deploy",
+      "to": "host:ops-jump-01",
+      "action": "lateral_movement",
+      "stage": "lateral_movement",
+      "time_start": "2026-07-06T09:39:15+08:00",
+      "time_end": "2026-07-06T09:39:19+08:00",
+      "evidence_ids": [
+        "E031",
+        "E032",
+        "E033"
+      ]
+    },
+    {
+      "id": "R07",
+      "from": "host:web-prod-01",
+      "to": "account:crm_ro",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "time_start": "2026-07-06T09:51:00+08:00",
+      "time_end": "2026-07-06T09:51:01+08:00",
+      "evidence_ids": [
+        "E038",
+        "E037"
+      ]
+    },
+    {
+      "id": "R07b",
+      "from": "account:crm_ro",
+      "to": "database:mysql-core-01",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "time_start": "2026-07-06T09:51:00+08:00",
+      "time_end": "2026-07-06T09:51:00+08:00",
+      "evidence_ids": [
+        "E037"
+      ]
+    },
+    {
+      "id": "R07c",
+      "from": "host:web-prod-01",
+      "to": "database:mysql-core-01",
+      "action": "database_discovery",
+      "stage": "discovery",
+      "time_start": "2026-07-06T09:55:00+08:00",
+      "time_end": "2026-07-06T09:55:45+08:00",
+      "evidence_ids": [
+        "E039",
+        "E040"
+      ]
+    },
+    {
+      "id": "R07d",
+      "from": "host:web-prod-01",
+      "to": "database:mysql-core-01",
+      "action": "database_discovery",
+      "stage": "discovery",
+      "time_start": "2026-07-06T09:55:15+08:00",
+      "time_end": "2026-07-06T09:55:30+08:00",
+      "evidence_ids": [
+        "E041",
+        "E042"
+      ]
+    },
+    {
+      "id": "R08",
+      "from": "host:ops-jump-01",
+      "to": "account:CORP\\svc_backup",
+      "action": "credential_dump",
+      "stage": "credential_access",
+      "time_start": "2026-07-06T10:02:00+08:00",
+      "time_end": "2026-07-06T10:02:34+08:00",
+      "evidence_ids": [
+        "E043",
+        "E045"
+      ]
+    },
+    {
+      "id": "R09",
+      "from": "account:CORP\\svc_backup",
+      "to": "host:ad-dc-01",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "time_start": "2026-07-06T10:08:06+08:00",
+      "time_end": "2026-07-06T10:08:11+08:00",
+      "evidence_ids": [
+        "E053",
+        "E054",
+        "E056"
+      ]
+    },
+    {
+      "id": "R10",
+      "from": "host:ops-jump-01",
+      "to": "host:ad-dc-01",
+      "action": "domain_discovery",
+      "stage": "discovery",
+      "time_start": "2026-07-06T10:13:00+08:00",
+      "time_end": "2026-07-06T10:13:40+08:00",
+      "evidence_ids": [
+        "E065",
+        "E066",
+        "E067"
+      ]
+    },
+    {
+      "id": "R11",
+      "from": "host:ops-jump-01",
+      "to": "host:win-admin-01",
+      "action": "lateral_movement",
+      "stage": "lateral_movement",
+      "time_start": "2026-07-06T10:22:00+08:00",
+      "time_end": "2026-07-06T10:22:00+08:00",
+      "evidence_ids": [
+        "E068",
+        "E069"
+      ]
+    },
+    {
+      "id": "R12",
+      "from": "host:win-admin-01",
+      "to": "process:procdump.exe",
+      "action": "credential_dump",
+      "stage": "credential_access",
+      "time_start": "2026-07-06T10:27:00+08:00",
+      "time_end": "2026-07-06T10:27:02+08:00",
+      "evidence_ids": [
+        "E071",
+        "E072",
+        "E073"
+      ]
+    },
+    {
+      "id": "R13",
+      "from": "host:win-admin-01",
+      "to": "host:file-srv-01",
+      "action": "data_collection",
+      "stage": "collection",
+      "time_start": "2026-07-06T10:41:00+08:00",
+      "time_end": "2026-07-06T10:41:04+08:00",
+      "evidence_ids": [
+        "E081",
+        "E082",
+        "E083"
+      ]
+    },
+    {
+      "id": "R14",
+      "from": "host:win-admin-01",
+      "to": "file:C:\\Temp\\finance_q2.7z",
+      "action": "data_staging",
+      "stage": "collection",
+      "time_start": "2026-07-06T10:49:00+08:00",
+      "time_end": "2026-07-06T10:49:00+08:00",
+      "evidence_ids": [
+        "E084"
+      ]
+    },
+    {
+      "id": "R14b",
+      "from": "host:win-admin-01",
+      "to": "host:ops-jump-01",
+      "action": "data_staging",
+      "stage": "collection",
+      "time_start": "2026-07-06T10:49:30+08:00",
+      "time_end": "2026-07-06T10:49:30+08:00",
+      "evidence_ids": [
+        "E085"
+      ]
+    },
+    {
+      "id": "R15",
+      "from": "host:ops-jump-01",
+      "to": "account:svc_deploy",
+      "action": "credential_dump",
+      "stage": "credential_access",
+      "time_start": "2026-07-06T10:05:00+08:00",
+      "time_end": "2026-07-06T10:05:18+08:00",
+      "evidence_ids": [
+        "E048",
+        "E049"
+      ]
+    },
+    {
+      "id": "R16",
+      "from": "account:svc_deploy",
+      "to": "host:gitlab-01",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "time_start": "2026-07-06T10:05:18+08:00",
+      "time_end": "2026-07-06T10:05:18+08:00",
+      "evidence_ids": [
+        "E049"
+      ]
+    },
+    {
+      "id": "R17",
+      "from": "host:gitlab-01",
+      "to": "host:jenkins-01",
+      "action": "ci_pipeline_execution",
+      "stage": "execution",
+      "time_start": "2026-07-06T10:18:00+08:00",
+      "time_end": "2026-07-06T10:18:21+08:00",
+      "evidence_ids": [
+        "E058",
+        "E059"
+      ]
+    },
+    {
+      "id": "R18",
+      "from": "host:jenkins-01",
+      "to": "host:ci-runner-01",
+      "action": "ci_pipeline_execution",
+      "stage": "execution",
+      "time_start": "2026-07-06T10:18:21+08:00",
+      "time_end": "2026-07-06T10:24:05+08:00",
+      "evidence_ids": [
+        "E059",
+        "E074",
+        "E075"
+      ]
+    },
+    {
+      "id": "R19",
+      "from": "host:ci-runner-01",
+      "to": "token:system:serviceaccount:prod:ci-runner",
+      "action": "credential_dump",
+      "stage": "credential_access",
+      "time_start": "2026-07-06T10:28:00+08:00",
+      "time_end": "2026-07-06T10:28:12+08:00",
+      "evidence_ids": [
+        "E076",
+        "E077"
+      ]
+    },
+    {
+      "id": "R20",
+      "from": "token:system:serviceaccount:prod:ci-runner",
+      "to": "cluster:k8s-master-01",
+      "action": "cloud_discovery",
+      "stage": "discovery",
+      "time_start": "2026-07-06T10:28:12+08:00",
+      "time_end": "2026-07-06T10:34:24+08:00",
+      "evidence_ids": [
+        "E077",
+        "E078",
+        "E080"
+      ]
+    },
+    {
+      "id": "R21",
+      "from": "token:system:serviceaccount:prod:ci-runner",
+      "to": "bucket:prod-backup",
+      "action": "cloud_collection",
+      "stage": "collection",
+      "time_start": "2026-07-06T10:42:00+08:00",
+      "time_end": "2026-07-06T11:15:00+08:00",
+      "evidence_ids": [
+        "E086",
+        "E087",
+        "E088"
+      ]
+    },
+    {
+      "id": "R23",
+      "from": "host:ops-jump-01",
+      "to": "account:bi_sync",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "time_start": "2026-07-06T10:12:00+08:00",
+      "time_end": "2026-07-06T10:12:01+08:00",
+      "evidence_ids": [
+        "E060",
+        "E064"
+      ]
+    },
+    {
+      "id": "R23b",
+      "from": "account:bi_sync",
+      "to": "database:pgsql-bi-01",
+      "action": "data_collection",
+      "stage": "collection",
+      "time_start": "2026-07-06T10:18:00+08:00",
+      "time_end": "2026-07-06T10:19:20+08:00",
+      "evidence_ids": [
+        "E061",
+        "E062",
+        "E063"
+      ]
+    },
+    {
+      "id": "R24",
+      "from": "host:ops-jump-01",
+      "to": "domain:archive-sync-bkt.storage.example",
+      "action": "exfiltration",
+      "stage": "exfiltration",
+      "time_start": "2026-07-06T11:08:00+08:00",
+      "time_end": "2026-07-06T11:08:01+08:00",
+      "evidence_ids": [
+        "E089",
+        "E090"
+      ]
+    },
+    {
+      "id": "R25",
+      "from": "host:ops-jump-01",
+      "to": "file:/tmp/.cache/.stage/full.tar",
+      "action": "data_staging",
+      "stage": "collection",
+      "time_start": "2026-07-06T11:35:00+08:00",
+      "time_end": "2026-07-06T11:35:50+08:00",
+      "evidence_ids": [
+        "E091",
+        "E092",
+        "E093"
+      ]
+    },
+    {
+      "id": "R26",
+      "from": "host:ops-jump-01",
+      "to": "file:/tmp/ci.sh",
+      "action": "cleanup",
+      "stage": "defense_evasion",
+      "time_start": "2026-07-06T11:42:00+08:00",
+      "time_end": "2026-07-06T11:42:22+08:00",
+      "evidence_ids": [
+        "E094",
+        "E096"
+      ]
+    },
+    {
+      "id": "R27",
+      "from": "host:ops-jump-01",
+      "to": "domain:cdn-sync.example",
+      "action": "exfiltration",
+      "stage": "exfiltration",
+      "time_start": "2026-07-06T11:50:00+08:00",
+      "time_end": "2026-07-06T11:50:18+08:00",
+      "evidence_ids": [
+        "E097",
+        "E098",
+        "E099",
+        "E101"
+      ]
+    }
+  ]
+}

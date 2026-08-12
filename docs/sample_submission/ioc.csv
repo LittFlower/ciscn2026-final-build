@@ -1,0 +1,2 @@
+type,value,first_seen,last_seen,related_asset,evidence_ids
+ip,192.0.2.234,2026-07-05T20:43:31+08:00,2026-07-05T20:43:31+08:00,edge-fw-01,E001

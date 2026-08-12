@@ -1,0 +1,247 @@
+{
+  "manifest_version": "1.0",
+  "algorithm": "sha256",
+  "scope": "all challenge logs, environment inventory, and scored artifact sources",
+  "files": [
+    {
+      "path": "artifacts/artifact_event_index.csv",
+      "size_bytes": 12376214,
+      "sha256": "6a4adfe75734be486e2e741b3ddb6ec7601c6e274724944b0c00904210a2ed90"
+    },
+    {
+      "path": "artifacts/pcap/edge_trace_20260706.pcap",
+      "size_bytes": 10263918,
+      "sha256": "2873dbd66cb541f9ea758cf54850bb4726887e5d52756bce536657ac3b443626"
+    },
+    {
+      "path": "artifacts/pcap/pcap_manifest.csv",
+      "size_bytes": 11005539,
+      "sha256": "d19baa654091c59e14fe42587a4db75d8e79e6de1fdea2e27449b8c97a7840f5"
+    },
+    {
+      "path": "artifacts/windows_event_exports/security_selected.evtx.xml",
+      "size_bytes": 13365405,
+      "sha256": "84eea86ae317fd1256aac3ca884449a66579642a9532574d143254c2a5592f54"
+    },
+    {
+      "path": "artifacts/windows_event_exports/sysmon_selected.evtx.xml",
+      "size_bytes": 7746109,
+      "sha256": "ab015325c7f19cf1e1e79cde75b98915fc765bc9059e55a5cd1778d053809755"
+    },
+    {
+      "path": "env/account_inventory.csv",
+      "size_bytes": 700,
+      "sha256": "7f9c7ac404bb50b9e279c4694b003a8c2a208306e1c72adf46d1a0237a200c59"
+    },
+    {
+      "path": "env/asset_inventory.csv",
+      "size_bytes": 6130,
+      "sha256": "ae5fd4ce115b4fe8efaff9976ebe8880cd32d9634d7f754efd62887f31fa19c1"
+    },
+    {
+      "path": "env/business_calendar.csv",
+      "size_bytes": 270,
+      "sha256": "457f4d6bb07dd22f459252fefd7cfdc7ae8f5d39eff786e944be61373e49e575"
+    },
+    {
+      "path": "env/known_maintenance_windows.csv",
+      "size_bytes": 215,
+      "sha256": "11c566a19350815c84125ea26a576ef7e6df2624e5d09f2dc99a4e1a8aa35372"
+    },
+    {
+      "path": "env/network_segments.csv",
+      "size_bytes": 398,
+      "sha256": "7963450fd6c3e5e825c229ce178a657a3b7940a40bcd2bc5bba08f81dd05534f"
+    },
+    {
+      "path": "env/service_map.json",
+      "size_bytes": 961,
+      "sha256": "6eb574c70434cdbebab4034dcbdcdbb1c207f9ec7e0b37c81637b266ddca0b6e"
+    },
+    {
+      "path": "logs/app/crm_app_20260706.jsonl",
+      "size_bytes": 5148089,
+      "sha256": "a3d391de5d420b89cf73365a7d31f347c2216cb05c7d23e22589e18e9a66194b"
+    },
+    {
+      "path": "logs/app/gitlab_audit_20260706.jsonl",
+      "size_bytes": 5258088,
+      "sha256": "950f008f63310ca722e5fdbe735dcf83efcd92b978dbf0546dc3092fb8f9ceaa"
+    },
+    {
+      "path": "logs/app/harbor_audit_20260706.jsonl",
+      "size_bytes": 5292605,
+      "sha256": "184254ec3b391b8d0ab764f84c8d617790339b2945e7888772c14520c2496b21"
+    },
+    {
+      "path": "logs/app/jenkins_audit_20260706.jsonl",
+      "size_bytes": 5454838,
+      "sha256": "50ea7b12166e64284bac0d772b9385b0a1b1516f03ed4310480143cbf6747346"
+    },
+    {
+      "path": "logs/app/oa_app_20260706.jsonl",
+      "size_bytes": 5179805,
+      "sha256": "f09777345f04ea850903a8627157855ca1db1d47ca50862ca5f9fd4e99548b4a"
+    },
+    {
+      "path": "logs/cloud/cloud_iam_20260706.jsonl",
+      "size_bytes": 5466981,
+      "sha256": "319f697cfa188c8c1c26ac48323dc16ff86a97e425462109d562579c786c921b"
+    },
+    {
+      "path": "logs/cloud/k8s_audit_20260706.jsonl",
+      "size_bytes": 5241004,
+      "sha256": "6b0f02323f82ef9d64e58ec9c39bb5209388a35b8237667ef640f29a8f661413"
+    },
+    {
+      "path": "logs/cloud/object_storage_access_20260706.jsonl",
+      "size_bytes": 5526468,
+      "sha256": "d66d4df035441c6429dea037c10f9014946f316366100b960458b6ee10977472"
+    },
+    {
+      "path": "logs/data/minio_audit_20260706.jsonl",
+      "size_bytes": 5293274,
+      "sha256": "5330100b69e60f3fbbfb163dd6b651c5fbf1433694a91b21e5c37186e1d048ea"
+    },
+    {
+      "path": "logs/data/mysql_core_audit_20260706.csv",
+      "size_bytes": 5287370,
+      "sha256": "0c60982713a3458115c082e2fa6b833674569fa048cfbb828c3d936e354e0599"
+    },
+    {
+      "path": "logs/data/pgsql_bi_audit_20260706.csv",
+      "size_bytes": 3997848,
+      "sha256": "8079aba5845e80866603a8227837534b058f970af1ae15d131f26237244b2ca0"
+    },
+    {
+      "path": "logs/edge/firewall_20260706.csv",
+      "size_bytes": 27165249,
+      "sha256": "17bb2e25fcc3623150bb226a319a901ea0b1b009ce054b2b53ec86d89b59af45"
+    },
+    {
+      "path": "logs/edge/lb_access_20260706.log",
+      "size_bytes": 15676318,
+      "sha256": "e9a03d27e4d0bea99fd1470af349f1a88fa522dfaec974a7dd8a14ae056f3431"
+    },
+    {
+      "path": "logs/edge/vpn_20260706.csv",
+      "size_bytes": 2672158,
+      "sha256": "533529c6a1ea8e5b0a44a9b8627ee6257c1c55c5e9640dffaad993bb0bf19d8b"
+    },
+    {
+      "path": "logs/edge/waf_20260706.jsonl",
+      "size_bytes": 34101174,
+      "sha256": "57fd8290025c3dda22f84d26ac34544879ca8ff2c55ff4a0db57874cf0496127"
+    },
+    {
+      "path": "logs/linux/ci-runner-01_auditd.jsonl",
+      "size_bytes": 8120056,
+      "sha256": "05c3173d86f9c0cfc047be6dd26c143ec9b43a691eef2851275378ccaca8180e"
+    },
+    {
+      "path": "logs/linux/ci-runner-01_auth.log",
+      "size_bytes": 2182094,
+      "sha256": "84d68d98ded61970b2272459e561f169f50e98baf20552d813b27342976fc7b3"
+    },
+    {
+      "path": "logs/linux/ops-jump-01_auditd.jsonl",
+      "size_bytes": 8810425,
+      "sha256": "54eded9d9b3f6087d500b522a9aa9bc720fa9a7c5d9cdf15dbe3535b12c8e6ce"
+    },
+    {
+      "path": "logs/linux/ops-jump-01_auth.log",
+      "size_bytes": 2610938,
+      "sha256": "d5102192d539308283865cb9baa759392ab0cfdb877ac830cc206ee3286fae8c"
+    },
+    {
+      "path": "logs/linux/web-prod-01_auditd.jsonl",
+      "size_bytes": 8809339,
+      "sha256": "4b4feaa95474ae44119206c77de9df91318b5bc3e85d8b48123b05487ac487b5"
+    },
+    {
+      "path": "logs/linux/web-prod-01_auth.log",
+      "size_bytes": 2615313,
+      "sha256": "be227bee523fd5421f8048f3b714f8566717190719585756bcd532615e682f5b"
+    },
+    {
+      "path": "logs/linux/web-prod-01_nginx_access.log",
+      "size_bytes": 336,
+      "sha256": "0a90fa211c2a519baf9358c64a717bcb11b2f16a9a66e3c80d0c9df7a82748c5"
+    },
+    {
+      "path": "logs/network/dns_20260706.log",
+      "size_bytes": 20871754,
+      "sha256": "4370b6eb40b0abf7d953fbff11c758e17ebd55d7f4568b77f2fb58ce83b8a914"
+    },
+    {
+      "path": "logs/network/nac_20260706.jsonl",
+      "size_bytes": 4741333,
+      "sha256": "a43fedc11af26b9f21463812c4f53d06ed2fce302e236ca3027bbd6f58ec18cd"
+    },
+    {
+      "path": "logs/network/netflow_20260706.csv",
+      "size_bytes": 25382533,
+      "sha256": "b4593b74a0f04ccfa251edd6ca2350072b151f55b5ecd48b54cf2f4a608535c4"
+    },
+    {
+      "path": "logs/network/proxy_20260706.csv",
+      "size_bytes": 23035964,
+      "sha256": "614b9fc82bcef2fa9f124007c83f90ceed73c5442b9e2f12dfa9f9d6a223a612"
+    },
+    {
+      "path": "logs/security/edr_alerts_20260706.jsonl",
+      "size_bytes": 3206123,
+      "sha256": "c070ca28187f8a348ce58a2851835bbb44a744c48a89cd24b68a863298652d2c"
+    },
+    {
+      "path": "logs/security/ids_alerts_20260706.jsonl",
+      "size_bytes": 3176823,
+      "sha256": "6a3d7024b549b6c71507d87a5017f88d0115c65a28cc751647d3075a9128fc4b"
+    },
+    {
+      "path": "logs/security/vuln_scanner_20260706.csv",
+      "size_bytes": 2262199,
+      "sha256": "b71d896cba7c3bbde471b16ba46c05e1a229b3254e026e14b3f1587be17251ad"
+    },
+    {
+      "path": "logs/windows/ad-dc-01_security.jsonl",
+      "size_bytes": 9030417,
+      "sha256": "cd292e8249ae36909c909a8da509a906506c900c4845d28c5f12fc0068e730d8"
+    },
+    {
+      "path": "logs/windows/ad-dc-01_sysmon.jsonl",
+      "size_bytes": 8832271,
+      "sha256": "b867b05b49918c3cbdb390029740e83b568440320e8abc2b40f796f722a91737"
+    },
+    {
+      "path": "logs/windows/file-srv-01_security.jsonl",
+      "size_bytes": 9121985,
+      "sha256": "466576ab7ab2ddba9fc711ccf6533078d225fbbcb17b7f26dec0881333089a4f"
+    },
+    {
+      "path": "logs/windows/file-srv-01_sysmon.jsonl",
+      "size_bytes": 8907854,
+      "sha256": "28c6ca02626c8a6f727d858ecc8aa20b2d7b08fec1325efb1c6b75687e91153d"
+    },
+    {
+      "path": "logs/windows/finance-pc-07_security.jsonl",
+      "size_bytes": 9168835,
+      "sha256": "eed16c42e1019465376df15146369972c1efb547ccb6d02e21bd4c5d6fa4f07d"
+    },
+    {
+      "path": "logs/windows/finance-pc-07_sysmon.jsonl",
+      "size_bytes": 8956700,
+      "sha256": "2fe760dfbf47036e7e06f69eb8b1955e833146e25798419fe6149efd939f55d7"
+    },
+    {
+      "path": "logs/windows/win-admin-01_security.jsonl",
+      "size_bytes": 9144424,
+      "sha256": "2b06848c99a5aa5b5920fd38f961a54caabcd9d55f786790133af5311e6dcbcb"
+    },
+    {
+      "path": "logs/windows/win-admin-01_sysmon.jsonl",
+      "size_bytes": 8930513,
+      "sha256": "3b9e0e0922245e079b9fe10971463f6fcae4270aa041b4bdd0ffe47210d85fd0"
+    }
+  ]
+}

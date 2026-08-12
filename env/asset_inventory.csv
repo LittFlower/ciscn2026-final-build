@@ -1,0 +1,70 @@
+asset_id,hostname,primary_ip,segment,os,owner,business_role,criticality
+asset-edge-001,waf-01,10.20.10.5,DMZ,WAF,安全部,Web应用防护,high
+asset-edge-002,lb-01,10.20.10.6,DMZ,LoadBalancer,基础架构,负载均衡,high
+asset-web-001,web-prod-01,10.20.10.21,DMZ,Ubuntu 22.04,业务平台,OA入口,critical
+asset-web-002,api-gw-01,10.20.10.22,DMZ,Ubuntu 22.04,业务平台,API网关,high
+asset-app-001,oa-web-01,10.20.30.21,Server,Ubuntu 22.04,业务平台,OA应用,high
+asset-app-002,crm-app-01,10.20.30.31,Server,Ubuntu 22.04,数据平台,CRM应用,high
+asset-file-001,file-srv-01,10.20.30.41,Server,Windows Server 2019,IT,文件服务器,critical
+asset-jump-001,ops-jump-01,10.20.30.11,Server,Ubuntu 20.04,运维部,运维跳板,critical
+asset-ad-001,ad-dc-01,10.20.40.10,Identity,Windows Server 2019,IT,主域控,critical
+asset-ad-002,ad-dc-02,10.20.40.11,Identity,Windows Server 2019,IT,备域控,critical
+asset-id-001,ldap-01,10.20.40.21,Identity,Ubuntu 20.04,IT,LDAP服务,high
+asset-data-001,mysql-core-01,10.20.50.21,Data,MySQL 8.0,数据平台,CRM核心库,critical
+asset-data-002,pgsql-bi-01,10.20.50.31,Data,PostgreSQL 14,数据平台,BI数据仓库,critical
+asset-data-003,backup-nas-01,10.20.50.41,Data,NAS,IT,备份存储,critical
+asset-dev-001,gitlab-01,10.20.60.21,DevOps,Ubuntu 22.04,研发效能,代码平台,high
+asset-dev-002,jenkins-01,10.20.60.31,DevOps,Ubuntu 22.04,研发效能,CI平台,high
+asset-dev-003,ci-runner-01,10.20.60.41,DevOps,Ubuntu 22.04,研发效能,CI Runner,high
+asset-dev-004,harbor-01,10.20.60.51,DevOps,Ubuntu 22.04,研发效能,镜像仓库,medium
+asset-cloud-001,k8s-master-01,10.20.80.10,Cloud,Kubernetes,云平台,K8s控制面,critical
+asset-cloud-002,k8s-worker-01,10.20.80.11,Cloud,Kubernetes,云平台,K8s节点,high
+asset-cloud-003,minio-prod,10.20.80.31,Cloud,MinIO,云平台,对象存储,critical
+asset-sec-001,edr-mgr-01,10.20.90.11,Security,EDR,安全部,EDR管理,high
+asset-sec-002,siem-01,10.20.90.12,Security,SIEM,安全部,日志平台,high
+asset-sec-003,ids-01,10.20.90.13,Security,IDS,安全部,入侵检测,high
+asset-office-001,finance-pc-07,10.20.20.87,Office,Windows 11,财务部,财务终端,medium
+asset-office-002,hr-pc-12,10.20.20.91,Office,Windows 11,人力部,办公终端,medium
+asset-office-003,it-pc-03,10.20.20.33,Office,Windows 11,运维部,运维终端,medium
+asset-office-004,win-admin-01,10.20.20.34,Office,Windows 11,运维部,管理工作站,high
+asset-office-005,office-pc-05,10.20.20.45,Office,Windows 11,财务部,办公终端,medium
+asset-office-006,office-pc-06,10.20.20.46,Office,Windows 11,研发部,办公终端,low
+asset-office-007,office-pc-07,10.20.20.47,Office,Windows 11,财务部,办公终端,low
+asset-office-008,office-pc-08,10.20.20.48,Office,Windows 11,研发部,办公终端,low
+asset-office-009,office-pc-09,10.20.20.49,Office,Windows 11,财务部,办公终端,medium
+asset-office-010,office-pc-10,10.20.20.50,Office,Windows 11,客服部,办公终端,low
+asset-office-011,office-pc-11,10.20.20.51,Office,Windows 11,供应链,办公终端,low
+asset-office-012,office-pc-12,10.20.20.52,Office,Windows 11,财务部,办公终端,low
+asset-office-013,office-pc-13,10.20.20.53,Office,Windows 11,研发部,办公终端,low
+asset-office-014,office-pc-14,10.20.20.54,Office,Windows 11,财务部,办公终端,low
+asset-office-015,office-pc-15,10.20.20.55,Office,Windows 11,供应链,办公终端,low
+asset-office-016,office-pc-16,10.20.20.56,Office,Windows 11,财务部,办公终端,medium
+asset-office-017,office-pc-17,10.20.20.57,Office,Windows 11,客服部,办公终端,medium
+asset-office-018,office-pc-18,10.20.20.58,Office,Windows 11,市场部,办公终端,medium
+asset-office-019,office-pc-19,10.20.20.59,Office,Windows 11,研发部,办公终端,low
+asset-office-020,office-pc-20,10.20.20.60,Office,Windows 11,市场部,办公终端,medium
+asset-office-021,office-pc-21,10.20.20.61,Office,Windows 11,市场部,办公终端,medium
+asset-office-022,office-pc-22,10.20.20.62,Office,Windows 11,客服部,办公终端,low
+asset-office-023,office-pc-23,10.20.20.63,Office,Windows 11,客服部,办公终端,medium
+asset-office-024,office-pc-24,10.20.20.64,Office,Windows 11,市场部,办公终端,medium
+asset-office-025,office-pc-25,10.20.20.65,Office,Windows 11,供应链,办公终端,low
+asset-office-026,office-pc-26,10.20.20.66,Office,Windows 11,供应链,办公终端,low
+asset-office-027,office-pc-27,10.20.20.67,Office,Windows 11,客服部,办公终端,low
+asset-office-028,office-pc-28,10.20.20.68,Office,Windows 11,客服部,办公终端,low
+asset-office-029,office-pc-29,10.20.20.69,Office,Windows 11,供应链,办公终端,medium
+asset-office-030,office-pc-30,10.20.20.70,Office,Windows 11,研发部,办公终端,medium
+asset-office-031,office-pc-31,10.20.20.71,Office,Windows 11,客服部,办公终端,medium
+asset-office-032,office-pc-32,10.20.20.72,Office,Windows 11,客服部,办公终端,medium
+asset-office-033,office-pc-33,10.20.20.73,Office,Windows 11,财务部,办公终端,medium
+asset-office-034,office-pc-34,10.20.20.74,Office,Windows 11,客服部,办公终端,low
+asset-office-035,office-pc-35,10.20.20.75,Office,Windows 11,供应链,办公终端,medium
+asset-office-036,office-pc-36,10.20.20.76,Office,Windows 11,财务部,办公终端,medium
+asset-office-037,office-pc-37,10.20.20.77,Office,Windows 11,供应链,办公终端,low
+asset-office-038,office-pc-38,10.20.20.78,Office,Windows 11,市场部,办公终端,medium
+asset-office-039,office-pc-39,10.20.20.79,Office,Windows 11,市场部,办公终端,low
+asset-office-040,office-pc-40,10.20.20.80,Office,Windows 11,研发部,办公终端,low
+asset-office-041,office-pc-41,10.20.20.81,Office,Windows 11,供应链,办公终端,low
+asset-office-042,office-pc-42,10.20.20.82,Office,Windows 11,市场部,办公终端,medium
+asset-office-043,office-pc-43,10.20.20.83,Office,Windows 11,供应链,办公终端,low
+asset-office-044,office-pc-44,10.20.20.84,Office,Windows 11,供应链,办公终端,medium
+asset-office-045,office-pc-45,10.20.20.85,Office,Windows 11,研发部,办公终端,medium

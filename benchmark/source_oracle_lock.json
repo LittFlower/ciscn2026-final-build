@@ -1,0 +1,6 @@
+{
+  "lock_version": "1.0",
+  "algorithm": "sha256-canonical-json",
+  "scope": "entire reviewed source_oracle.json semantic model",
+  "source_oracle_sha256": "eef302a021abce6cafb5f1fd08bc9ec257000b83e8f373f03597debea319f2eb"
+}

@@ -1,0 +1,59 @@
+{
+  "public_services": [
+    {
+      "name": "OA入口",
+      "host": "web-prod-01",
+      "ip": "10.20.10.21",
+      "ports": [
+        80,
+        443
+      ]
+    },
+    {
+      "name": "API网关",
+      "host": "api-gw-01",
+      "ip": "10.20.10.22",
+      "ports": [
+        443
+      ]
+    }
+  ],
+  "internal_dependencies": [
+    {
+      "from": "web-prod-01",
+      "to": "mysql-core-01",
+      "ports": [
+        3306
+      ],
+      "purpose": "OA/CRM 数据访问"
+    },
+    {
+      "from": "ops-jump-01",
+      "to": "Server/Data/DevOps",
+      "ports": [
+        22,
+        3389,
+        445,
+        5432,
+        6443
+      ],
+      "purpose": "运维管理"
+    },
+    {
+      "from": "gitlab-01",
+      "to": "jenkins-01",
+      "ports": [
+        8080
+      ],
+      "purpose": "CI webhook"
+    },
+    {
+      "from": "ci-runner-01",
+      "to": "k8s-master-01",
+      "ports": [
+        6443
+      ],
+      "purpose": "CI 发布"
+    }
+  ]
+}

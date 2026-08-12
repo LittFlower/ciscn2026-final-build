@@ -1,0 +1,54 @@
+{
+  "profile_version": "1.2",
+  "name": "observed-remote-platform-v1",
+  "calibration_state": "uncalibrated",
+  "purpose": "An uncalibrated local estimator of the observable remote scoring interface; it does not claim recovery of the hidden server-side answer key.",
+  "observed_remote_contract": {
+    "upload": {
+      "format": "zip",
+      "local_estimator_requires_actual_archive": true,
+      "max_bytes": 31457280,
+      "max_bytes_basis": "The page displays 30 MB; this local preflight uses 30 * 1024 * 1024 bytes until the server-side comparison is calibrated.",
+      "required_root_files": [
+        "manifest.json",
+        "evidence.csv",
+        "timeline.csv",
+        "attack_graph.json",
+        "ioc.csv"
+      ],
+      "manifest_team_id_must_match_authenticated_team": true,
+      "invalid_upload_consumes_attempt": true,
+      "max_attempts": 3,
+      "best_score_retained": true
+    },
+    "score_components": {
+      "format": 10,
+      "evidence": 25,
+      "stage": 10,
+      "timeline": 15,
+      "nodes": 10,
+      "edges": 20,
+      "ioc": 10
+    }
+  },
+  "local_safety_limits": {
+    "max_payload_uncompressed_bytes": 134217728,
+    "max_member_uncompressed_bytes": 67108864,
+    "purpose": "Defend the local estimator from ZIP expansion attacks. These are local extraction limits, not an assertion about the remote server."
+  },
+  "offline_matching_model": {
+    "oracle": "source_oracle.json",
+    "time_tolerance_seconds": 90,
+    "evidence": "exact event-ID coverage with a conservative precision penalty for every unreviewed candidate event",
+    "stage": "exact stage match for matched event IDs",
+    "timeline": "one-to-one source-step match using equal stage, evidence F1, and endpoint/overlap time score; unmatched candidate rows reduce precision",
+    "nodes": "exact id and type coverage; extra nodes do not reduce score",
+    "edges": "one-to-one exact from/to/action/stage match, requiring corroborating cited evidence before time/evidence partial credit; unmatched candidate rows reduce precision",
+    "ioc": "one-to-one canonical type/value match requiring either cited evidence or temporal corroboration, then scoring time, assets, and cited-evidence F1"
+  },
+  "known_limits": [
+    "The hidden answer set, score thresholds, and tie-breaking behavior are not exposed by the platform.",
+    "The 90-second tolerance and partial-credit ratios are local assumptions retained from the prior transparent scorer until a controlled remote calibration is authorized.",
+    "Local ZIP uncompressed-size caps defend this estimator and are not evidence of matching remote extraction limits."
+  ]
+}

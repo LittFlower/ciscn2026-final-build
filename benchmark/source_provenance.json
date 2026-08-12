@@ -1,0 +1,556 @@
+{
+  "provenance_version": "1.0",
+  "algorithm": "sha256-canonical-json",
+  "records": [
+    {
+      "event_id": "artifact-pcap-20260706-072042",
+      "origin": "artifacts/artifact_event_index.csv:72043",
+      "record_sha256": "8bec3e6954767d5176d56968af23dbc7d75863ca35bfc1e88afa02bf816e57e0"
+    },
+    {
+      "event_id": "artifact-pcap-20260706-072073",
+      "origin": "artifacts/artifact_event_index.csv:72074",
+      "record_sha256": "3b3d476357e795ddb1a83cb4b7a5b42befb94f7aa4961bcb89c88faa19428de2"
+    },
+    {
+      "event_id": "artifact-pcap-20260706-073875",
+      "origin": "artifacts/artifact_event_index.csv:73876",
+      "record_sha256": "5cfdaae0ec63721dc21030c08891a55ae5ec38d2dfb44ab388ca41892e9dd34d"
+    },
+    {
+      "event_id": "artifact-sysmon-20260706-000001",
+      "origin": "artifacts/artifact_event_index.csv:99751",
+      "record_sha256": "50706611dcd471c9e6beeeeaccb0e7ea8194455d4e094dd73d0115f9d1968dc7"
+    },
+    {
+      "event_id": "artifact-sysmon-20260706-000002",
+      "origin": "artifacts/artifact_event_index.csv:99765",
+      "record_sha256": "75d0e3068fffe4449eba27cde01a53f82e657534c9db7bebbaec68417febcabe"
+    },
+    {
+      "event_id": "artifact-winsec-20260706-000001",
+      "origin": "artifacts/artifact_event_index.csv:90509",
+      "record_sha256": "fe4c4525eac95bd3838cc84bea7da85830b3f4badf2572e044e3ea32f1c94ada"
+    },
+    {
+      "event_id": "artifact-winsec-20260706-000002",
+      "origin": "artifacts/artifact_event_index.csv:90510",
+      "record_sha256": "f0c6aed928e99240f567bcd5e1c0f315ab21c5f0eedf0b4a03ede8ca9b2ab1a6"
+    },
+    {
+      "event_id": "artifact-winsec-20260706-000003",
+      "origin": "artifacts/artifact_event_index.csv:90543",
+      "record_sha256": "bd117812c58c06e4f04ad091ee3ebbf5325c83cb494838371755250f7563698c"
+    },
+    {
+      "event_id": "audit-ci-20260706-000001",
+      "origin": "logs/linux/ci-runner-01_auditd.jsonl:22212",
+      "record_sha256": "e7ac76a347032f50056cd5011e8a59603ec115d4ddc7e36abdca043a3058dee5"
+    },
+    {
+      "event_id": "audit-ci-20260706-000002",
+      "origin": "logs/linux/ci-runner-01_auditd.jsonl:22222",
+      "record_sha256": "058e18874adceae270ffcb42e54b6bf2bd26160fb6cd2979c6968608fd89f445"
+    },
+    {
+      "event_id": "audit-ops-20260706-024801",
+      "origin": "logs/linux/ops-jump-01_auditd.jsonl:23919",
+      "record_sha256": "1f37717d29624533a2b79114e083e9eac0e0c3a643deead453b02a0c740ebd7f"
+    },
+    {
+      "event_id": "audit-ops-20260706-024802",
+      "origin": "logs/linux/ops-jump-01_auditd.jsonl:23921",
+      "record_sha256": "dacdf82699ed721fec43b625be65835926bf8d3336dc4cef6c63a74cdb982d11"
+    },
+    {
+      "event_id": "audit-ops-20260706-024803",
+      "origin": "logs/linux/ops-jump-01_auditd.jsonl:23923",
+      "record_sha256": "859d02a16a0143ee2c762d18d4ba16122bb426df9600a63cd4b8bb53fadefa07"
+    },
+    {
+      "event_id": "audit-ops-20260706-024804",
+      "origin": "logs/linux/ops-jump-01_auditd.jsonl:23987",
+      "record_sha256": "d041ff0a59a0602ffcd26614ad6d27f82b272a78c460275794fcb2e421f6933c"
+    },
+    {
+      "event_id": "audit-ops-20260706-024805",
+      "origin": "logs/linux/ops-jump-01_auditd.jsonl:23988",
+      "record_sha256": "dc79bd48afea14c8d1abf753516a93cf6f45af15862d1ab9b903cb3017cf1f5a"
+    },
+    {
+      "event_id": "audit-ops-20260706-024806",
+      "origin": "logs/linux/ops-jump-01_auditd.jsonl:23990",
+      "record_sha256": "d2d4ebc754a147f32bc58a18aaed849d6cdb3c61a2a5de7db30dad075b620e8b"
+    },
+    {
+      "event_id": "audit-ops-20260706-024807",
+      "origin": "logs/linux/ops-jump-01_auditd.jsonl:23997",
+      "record_sha256": "195821a97db22b57f4ab7309d9c9795fff1f322adb3a40fa9a23d2befd0eaffd"
+    },
+    {
+      "event_id": "audit-ops-20260706-024808",
+      "origin": "logs/linux/ops-jump-01_auditd.jsonl:24354",
+      "record_sha256": "b9849d37d99236d702d8e36138f5aeb8f06462fe92be45002ff9d2a3fc4630cc"
+    },
+    {
+      "event_id": "audit-ops-20260706-024809",
+      "origin": "logs/linux/ops-jump-01_auditd.jsonl:24355",
+      "record_sha256": "304fb5e4c24fe3a517ebe8217feee71e13ee0a17bdd8b304441c7643cd4a67da"
+    },
+    {
+      "event_id": "audit-ops-20260706-024810",
+      "origin": "logs/linux/ops-jump-01_auditd.jsonl:24357",
+      "record_sha256": "f546ec7a751236b317be14b024ee7d25fa836a80c2a302fdfbe03bbf1090a1d9"
+    },
+    {
+      "event_id": "audit-ops-20260706-024811",
+      "origin": "logs/linux/ops-jump-01_auditd.jsonl:24380",
+      "record_sha256": "6ae4d651ef5b63b98ee762847e5a022731a1feeef506dab538f0e93e54e489ea"
+    },
+    {
+      "event_id": "audit-ops-20260706-024812",
+      "origin": "logs/linux/ops-jump-01_auditd.jsonl:24381",
+      "record_sha256": "b5324b7724fdc253d281ee2cece77a762bd5c5444de1871b3007b3d9424a3af2"
+    },
+    {
+      "event_id": "audit-ops-20260706-024813",
+      "origin": "logs/linux/ops-jump-01_auditd.jsonl:24382",
+      "record_sha256": "86a0b55de424caf9be96f8b7dc1ca237c8cf8d66be6d1d6c5bf70e7831e6a30e"
+    },
+    {
+      "event_id": "audit-web-20260706-024801",
+      "origin": "logs/linux/web-prod-01_auditd.jsonl:23837",
+      "record_sha256": "d99f95163ff186dc5bb4308d053c467afa346e17a9f53cbf98697e186c08f2ed"
+    },
+    {
+      "event_id": "audit-web-20260706-024802",
+      "origin": "logs/linux/web-prod-01_auditd.jsonl:23850",
+      "record_sha256": "6a1c2a705874d401c09f31b10ed4e16f02a9d20e1dfff71e7de44c67be85b0fc"
+    },
+    {
+      "event_id": "audit-web-20260706-024803",
+      "origin": "logs/linux/web-prod-01_auditd.jsonl:23868",
+      "record_sha256": "7c82666560c49246eef9d010de955456b97639575f9ccd59d8ad9897f57de7fe"
+    },
+    {
+      "event_id": "audit-web-20260706-024804",
+      "origin": "logs/linux/web-prod-01_auditd.jsonl:23871",
+      "record_sha256": "3641c71d637444e12ede6431bc270d29722ea62307599fd7032fc9a7beb0366b"
+    },
+    {
+      "event_id": "audit-web-20260706-024805",
+      "origin": "logs/linux/web-prod-01_auditd.jsonl:23874",
+      "record_sha256": "841a887edac9f95f67c35213417cf734bc229dc98cd984544eec068fa1e3796d"
+    },
+    {
+      "event_id": "audit-web-20260706-024806",
+      "origin": "logs/linux/web-prod-01_auditd.jsonl:23876",
+      "record_sha256": "7f8123a372235035c75c9a774fe6b0b570a537991a74356b386d27b264501b2b"
+    },
+    {
+      "event_id": "audit-web-20260706-024807",
+      "origin": "logs/linux/web-prod-01_auditd.jsonl:23878",
+      "record_sha256": "22b627c304a828333d33e7b762ea4ece0e4e3c9dda6706874778df400cce61d1"
+    },
+    {
+      "event_id": "audit-web-20260706-024808",
+      "origin": "logs/linux/web-prod-01_auditd.jsonl:23912",
+      "record_sha256": "f6c6c9cd8e14880e17bf936b1d93a93970e5abd3b3c03b836109697931bdf784"
+    },
+    {
+      "event_id": "audit-web-20260706-024809",
+      "origin": "logs/linux/web-prod-01_auditd.jsonl:23914",
+      "record_sha256": "b2f244c2e0dec387ff24b43c4c2df1a77df2b418a43ccb7bdcc4f3e4b3d3606d"
+    },
+    {
+      "event_id": "audit-web-20260706-024810",
+      "origin": "logs/linux/web-prod-01_auditd.jsonl:23916",
+      "record_sha256": "84a4fa2858db5e976251faf9ff8412b1f61371563c5b261ffc7e1f1d4f2126c0"
+    },
+    {
+      "event_id": "auth-ops-20260706-016878",
+      "origin": "logs/linux/ops-jump-01_auth.log:16253",
+      "record_sha256": "d2a780c648d48f59ee37c0187f25eda60eeb307b6f5348d0417967220e07217a"
+    },
+    {
+      "event_id": "auth-ops-20260706-016892",
+      "origin": "logs/linux/ops-jump-01_auth.log:16307",
+      "record_sha256": "7ecb321fe4249fa31cfaedcfb9a2e50711f829d9ce22d7b8d8a956079c268edb"
+    },
+    {
+      "event_id": "auth-web-20260706-016877",
+      "origin": "logs/linux/web-prod-01_auth.log:16260",
+      "record_sha256": "07f5ee98846ba1de032b46ccc18e136d1fa8aa994b651ef91396fa5a95f367b4"
+    },
+    {
+      "event_id": "dns-20260706-144001",
+      "origin": "logs/network/dns_20260706.log:141814",
+      "record_sha256": "240635c82bd0babd4af7e7a87c925589183c1c42c42bc51ce1caa462ea8c5350"
+    },
+    {
+      "event_id": "edr-20260706-010135",
+      "origin": "logs/security/edr_alerts_20260706.jsonl:9582",
+      "record_sha256": "7b526fefd591182a7b459ef660a37559cd523d489f218886b8397929f3654f16"
+    },
+    {
+      "event_id": "edr-20260706-010136",
+      "origin": "logs/security/edr_alerts_20260706.jsonl:9587",
+      "record_sha256": "6056c8d9f5675789110670c5bbc5508c0bae2794b8c25c5f1e61e807c6caee19"
+    },
+    {
+      "event_id": "edr-20260706-010137",
+      "origin": "logs/security/edr_alerts_20260706.jsonl:9867",
+      "record_sha256": "74aa3eb4415aa37f9d67058958db5891ae822127659e7dc2969e9ac98d83d414"
+    },
+    {
+      "event_id": "edr-20260706-010138",
+      "origin": "logs/security/edr_alerts_20260706.jsonl:9689",
+      "record_sha256": "9ee23f66ef69ad5d5063f5bd21d568bff88d9f4fb2623781d13ea5344f3cfa3d"
+    },
+    {
+      "event_id": "edr-20260706-010139",
+      "origin": "logs/security/edr_alerts_20260706.jsonl:9864",
+      "record_sha256": "71338e7562f4f27251d2ae39e0bbffa41c2a6a0a9ddbb73723e6317f0e5e03c2"
+    },
+    {
+      "event_id": "edr-20260706-010140",
+      "origin": "logs/security/edr_alerts_20260706.jsonl:9915",
+      "record_sha256": "554619d6429e6dfe0a520e919cf54f4dade3bfc237d708e659cbc908303008f8"
+    },
+    {
+      "event_id": "fw-20260706-144001",
+      "origin": "logs/edge/firewall_20260706.csv:137766",
+      "record_sha256": "b80ea0257e0d1c9b9e1e60128af230c3e527c0ca407d1b914b81e5e36abcf6eb"
+    },
+    {
+      "event_id": "fw-20260706-144141",
+      "origin": "logs/edge/firewall_20260706.csv:138289",
+      "record_sha256": "5eb75171c65c721adfe99cd20510145ef40a3e16b310e73c9fdccacae55ffe55"
+    },
+    {
+      "event_id": "fw-20260706-144142",
+      "origin": "logs/edge/firewall_20260706.csv:138295",
+      "record_sha256": "d742b10be55726d746cfa9cbdc197df6499f64e8f7ee2521b0c26bc937e5b75c"
+    },
+    {
+      "event_id": "fw-20260706-144143",
+      "origin": "logs/edge/firewall_20260706.csv:138301",
+      "record_sha256": "bd281ba4dd480895dbbc415d466d254d5cdc4701fece62b0b6b8946a59cc8139"
+    },
+    {
+      "event_id": "fw-20260706-144144",
+      "origin": "logs/edge/firewall_20260706.csv:138304",
+      "record_sha256": "158f11c87eaf8f62a5f1f8fe2b52433f192806ffac265f563cdb9ed4d885db2c"
+    },
+    {
+      "event_id": "fw-20260706-144145",
+      "origin": "logs/edge/firewall_20260706.csv:138311",
+      "record_sha256": "4d830ee1349190cc17eaf51fcf6780b606bfdbb770418744536277ccd6f7f6dd"
+    },
+    {
+      "event_id": "fw-20260706-144146",
+      "origin": "logs/edge/firewall_20260706.csv:138599",
+      "record_sha256": "3492fbd8a6838ef2d44f457b97a1739b9ba078ed639f375946ecb2c8137273b1"
+    },
+    {
+      "event_id": "fw-20260706-144147",
+      "origin": "logs/edge/firewall_20260706.csv:139143",
+      "record_sha256": "2d92d865cabf1faeeb17feaac5520d12fbab7dcdfb69ab75b8d9cb011e1c6399"
+    },
+    {
+      "event_id": "fw-20260706-144148",
+      "origin": "logs/edge/firewall_20260706.csv:139372",
+      "record_sha256": "7f7274c4dce9e70bc8619792925ad7423e32beadfcd3fbdcc8c12b4c38d57fa9"
+    },
+    {
+      "event_id": "fw-20260706-144149",
+      "origin": "logs/edge/firewall_20260706.csv:141065",
+      "record_sha256": "b9184879b6c147a2ce636b9fdb2e7c522413833ef42a481f4454276b4d4e6b85"
+    },
+    {
+      "event_id": "fw-20260706-144150",
+      "origin": "logs/edge/firewall_20260706.csv:141943",
+      "record_sha256": "aff12d1e3bc47978a3514509e8a3e26855dbea9f3665c1737aa4f036c4c8e8df"
+    },
+    {
+      "event_id": "gitlab-20260706-017582",
+      "origin": "logs/app/gitlab_audit_20260706.jsonl:17006",
+      "record_sha256": "da6e7e4f32124abc8f884b78bfa3af76a8cc66fd9fe9f2fb391348083da4b372"
+    },
+    {
+      "event_id": "gitlab-20260706-017583",
+      "origin": "logs/app/gitlab_audit_20260706.jsonl:17019",
+      "record_sha256": "e8a0d11e0f65fbe0e706fc01399032d19df8cfbd44adb761915a4d69168ca472"
+    },
+    {
+      "event_id": "gitlab-20260706-017584",
+      "origin": "logs/app/gitlab_audit_20260706.jsonl:17021",
+      "record_sha256": "3bcd118053efc65c7624cbeada6dc1d23e797559154793485392b237742521fe"
+    },
+    {
+      "event_id": "gitlab-20260706-017585",
+      "origin": "logs/app/gitlab_audit_20260706.jsonl:17022",
+      "record_sha256": "bd3e195ab6aa1ca2f8b66435d01a6aa330b574da4357c6201658a9c112ec5233"
+    },
+    {
+      "event_id": "gitlab-20260706-017586",
+      "origin": "logs/app/gitlab_audit_20260706.jsonl:17037",
+      "record_sha256": "ececa08f5965d5719968f806564c375bafe7885feb93ec8bc09548cfd0ce0c59"
+    },
+    {
+      "event_id": "iam-20260706-018161",
+      "origin": "logs/cloud/cloud_iam_20260706.jsonl:17667",
+      "record_sha256": "a1bc67c9b28424d840df3b17075a43fe0aaa6fbacb3cd6e134186bcd9f6d5fd3"
+    },
+    {
+      "event_id": "ids-20260706-010047",
+      "origin": "logs/security/ids_alerts_20260706.jsonl:9882",
+      "record_sha256": "ab58410eb500c5f51083fd98d9e8b4b2943da3b1a22345ae409dd60c61323e09"
+    },
+    {
+      "event_id": "jenkins-20260706-018030",
+      "origin": "logs/app/jenkins_audit_20260706.jsonl:17522",
+      "record_sha256": "c9cc1479ada837b843cee5fe3fa7d45bad97b6d0e8b10151b49939013630bbcf"
+    },
+    {
+      "event_id": "jenkins-20260706-018062",
+      "origin": "logs/app/jenkins_audit_20260706.jsonl:17560",
+      "record_sha256": "f241c285d73c1654b1bf9694801219e43a77e13ed040650f340606243b0c939c"
+    },
+    {
+      "event_id": "jenkins-20260706-018063",
+      "origin": "logs/app/jenkins_audit_20260706.jsonl:17536",
+      "record_sha256": "cc2c3b8ff3a1d12bc2ff6e80fc9ad46b51ee7fb1ca3dc8f1b6b363649aeb5757"
+    },
+    {
+      "event_id": "k8s-20260706-018130",
+      "origin": "logs/cloud/k8s_audit_20260706.jsonl:17618",
+      "record_sha256": "ebcfe660ec01799583225495b392c7fa8412a24e6e638b971351a9df16a36594"
+    },
+    {
+      "event_id": "k8s-20260706-018131",
+      "origin": "logs/cloud/k8s_audit_20260706.jsonl:17637",
+      "record_sha256": "58c2fe066c6f251751996fb4fbdb0918bb7d2768fe9c95994455d88fa2c30044"
+    },
+    {
+      "event_id": "k8s-20260706-018132",
+      "origin": "logs/cloud/k8s_audit_20260706.jsonl:17638",
+      "record_sha256": "98e806fa2a8ba4cbb45544cd1d285ecefb32155f6289e5dfa89c6b05d64452ce"
+    },
+    {
+      "event_id": "k8s-20260706-018133",
+      "origin": "logs/cloud/k8s_audit_20260706.jsonl:17639",
+      "record_sha256": "57e44751c52390a5bbd060c1856c82132a80faa554416125143134d721f99129"
+    },
+    {
+      "event_id": "mysql-20260706-036001",
+      "origin": "logs/data/mysql_core_audit_20260706.csv:34751",
+      "record_sha256": "a030387980eb9ecb7cfda41c93442769f4e583e16eb67295ac13a8c43af7cffa"
+    },
+    {
+      "event_id": "mysql-20260706-036002",
+      "origin": "logs/data/mysql_core_audit_20260706.csv:34775",
+      "record_sha256": "e3114fe91c1fdfd54b47ba536bbbe06f3c908143ac1a0f2de1182dc0f7775ffc"
+    },
+    {
+      "event_id": "mysql-20260706-036003",
+      "origin": "logs/data/mysql_core_audit_20260706.csv:34777",
+      "record_sha256": "b7d6a63bac9478f62f3f804d60a9b772d8592057a94eceab460ea5dad4a5be5f"
+    },
+    {
+      "event_id": "mysql-20260706-036004",
+      "origin": "logs/data/mysql_core_audit_20260706.csv:34780",
+      "record_sha256": "b143bde7c4d23a1b76f6e9ee046f81c84e1b803ba5e3376aba877d804fbb579f"
+    },
+    {
+      "event_id": "mysql-20260706-036005",
+      "origin": "logs/data/mysql_core_audit_20260706.csv:34781",
+      "record_sha256": "547a72ed51507adc96b8bd9c64c20a2ab3accd19ac98d828de249c2f0f5745d4"
+    },
+    {
+      "event_id": "mysql-20260706-036006",
+      "origin": "logs/data/mysql_core_audit_20260706.csv:34830",
+      "record_sha256": "9098e134709c2b1ab978da2b80635b1f20bac338a0cf037630bb03c17b37ec57"
+    },
+    {
+      "event_id": "netflow-20260706-152001",
+      "origin": "logs/network/netflow_20260706.csv:146618",
+      "record_sha256": "308c8a5af202c7c426d6cf0951a30f947aadfb5917aad3ea6b3ee2557ff60371"
+    },
+    {
+      "event_id": "netflow-20260706-152002",
+      "origin": "logs/network/netflow_20260706.csv:147285",
+      "record_sha256": "6755632c258fe0f12dc9ef617e8240af3aa8bd36f053679603abe7e4e98b0d3d"
+    },
+    {
+      "event_id": "netflow-20260706-152003",
+      "origin": "logs/network/netflow_20260706.csv:148240",
+      "record_sha256": "611690d92c850c224e632a6e1a555f962444cec04fe8aefe04c959e1266e36ad"
+    },
+    {
+      "event_id": "netflow-20260706-152004",
+      "origin": "logs/network/netflow_20260706.csv:147391",
+      "record_sha256": "d776954b6bf0dc7f6cbb9dd0df710890b473426d69efb1af365148cc46185457"
+    },
+    {
+      "event_id": "netflow-20260706-152005",
+      "origin": "logs/network/netflow_20260706.csv:148432",
+      "record_sha256": "a2caec5caefc800480b78f0175149fe376733a44963543ed01fcda128723d9cf"
+    },
+    {
+      "event_id": "nginx-20260706-000001",
+      "origin": "logs/linux/web-prod-01_nginx_access.log:1",
+      "record_sha256": "316b8654b23907510a9169ea858120f084a4b9e6811d8e163981b38484043c63"
+    },
+    {
+      "event_id": "nginx-20260706-000002",
+      "origin": "logs/linux/web-prod-01_nginx_access.log:2",
+      "record_sha256": "9debe3d483e16b446195e002cbd3928a9d4e582bbd7beaf682b33a79e7a42d2c"
+    },
+    {
+      "event_id": "oa-20260706-017559",
+      "origin": "logs/app/oa_app_20260706.jsonl:16911",
+      "record_sha256": "3a68b8892f4c7533e1fecfc75e5cee0653856e33162025c8fd3ed1068eccf8d1"
+    },
+    {
+      "event_id": "obj-20260706-017768",
+      "origin": "logs/cloud/object_storage_access_20260706.jsonl:17337",
+      "record_sha256": "959a3e63af10b944ea2e6c56ee1cecbcd62059d3abb2e3abc0191e73d47cccb1"
+    },
+    {
+      "event_id": "obj-20260706-017769",
+      "origin": "logs/cloud/object_storage_access_20260706.jsonl:17426",
+      "record_sha256": "1516438ce952366354871c09bd503d3c462881d5ac2043fd3b7854e18864d249"
+    },
+    {
+      "event_id": "pgsql-20260706-028001",
+      "origin": "logs/data/pgsql_bi_audit_20260706.csv:27121",
+      "record_sha256": "c9b9c06b78ca05571440be663af9bd3c3bda7b5f9e0c59bb243cc8d4f1df91ab"
+    },
+    {
+      "event_id": "pgsql-20260706-028002",
+      "origin": "logs/data/pgsql_bi_audit_20260706.csv:27137",
+      "record_sha256": "ef16f0b3c17a93297207f7a880762766e260d3852d5839b1a419290e890a8cd6"
+    },
+    {
+      "event_id": "pgsql-20260706-028003",
+      "origin": "logs/data/pgsql_bi_audit_20260706.csv:27142",
+      "record_sha256": "794e40212ae1a408750c301beb2b9f3bce02105d1e9b91632fd6dfa5c03d0229"
+    },
+    {
+      "event_id": "pgsql-20260706-028004",
+      "origin": "logs/data/pgsql_bi_audit_20260706.csv:27145",
+      "record_sha256": "9036cabad7a782a0da8223a7a23326adb26b095d260d810fa1961f75efcaf568"
+    },
+    {
+      "event_id": "proxy-20260706-112001",
+      "origin": "logs/network/proxy_20260706.csv:107606",
+      "record_sha256": "0ca6bc62cd0fd3080aa3984a8f9cf768e79d264392880e332c9dce30b72ef89d"
+    },
+    {
+      "event_id": "proxy-20260706-112002",
+      "origin": "logs/network/proxy_20260706.csv:109517",
+      "record_sha256": "992fb40f9321759e4727e9606fb6301a9918c7f41e82ede777634d38a9c15bf1"
+    },
+    {
+      "event_id": "proxy-20260706-112003",
+      "origin": "logs/network/proxy_20260706.csv:109643",
+      "record_sha256": "ec5280a8dd0df30baa33118467cbf313c0bf918eabd0f29ae74c198131f2a114"
+    },
+    {
+      "event_id": "proxy-20260706-112004",
+      "origin": "logs/network/proxy_20260706.csv:110257",
+      "record_sha256": "fcc28ca02940cd1c960a6f3451502126d68927234f7f9fd7b758ada64d6c7809"
+    },
+    {
+      "event_id": "sysmon-ad-20260706-000001",
+      "origin": "logs/windows/ad-dc-01_sysmon.jsonl:24078",
+      "record_sha256": "7f251f587eaada1ed5be7045a57aa07a477410c2fa86e7a8eba35526d01653d4"
+    },
+    {
+      "event_id": "sysmon-ad-20260706-000002",
+      "origin": "logs/windows/ad-dc-01_sysmon.jsonl:24080",
+      "record_sha256": "85d7edc3a4f7a02fb9f85cce96773e857b23d22b833754d2d568aa73591deb71"
+    },
+    {
+      "event_id": "sysmon-ad-20260706-000003",
+      "origin": "logs/windows/ad-dc-01_sysmon.jsonl:24082",
+      "record_sha256": "9183d9ebb1ce63cb3f0f1f34670535919786d9cf6e5819d0e9dfa3b66f6c906c"
+    },
+    {
+      "event_id": "sysmon-fil-20260706-024801",
+      "origin": "logs/windows/file-srv-01_sysmon.jsonl:24128",
+      "record_sha256": "df71dd33e46365c1d6abc25705223790b3d16bdcdb9565c5e3275f5d8303d851"
+    },
+    {
+      "event_id": "sysmon-win-20260706-024801",
+      "origin": "logs/windows/win-admin-01_sysmon.jsonl:24082",
+      "record_sha256": "ba7c5680a30c219cad1fe8424a768124a5be0788704ef71c091fff8bb8c1583a"
+    },
+    {
+      "event_id": "sysmon-win-20260706-024802",
+      "origin": "logs/windows/win-admin-01_sysmon.jsonl:24166",
+      "record_sha256": "31a33474a4480f3f749215d523c1ec9b91af6c3bad997063e7b5152c92f984a9"
+    },
+    {
+      "event_id": "waf-20260706-096001",
+      "origin": "logs/edge/waf_20260706.jsonl:91820",
+      "record_sha256": "3a139836744a0474730570a8d10ea5c6a43ce7dd85ad486f5ecd2617435526b9"
+    },
+    {
+      "event_id": "waf-20260706-096141",
+      "origin": "logs/edge/waf_20260706.jsonl:92162",
+      "record_sha256": "85b342d0d40703c26956d3a44121e2a86aafc78ac040d9d22b7f4f9d46150266"
+    },
+    {
+      "event_id": "waf-20260706-096142",
+      "origin": "logs/edge/waf_20260706.jsonl:92168",
+      "record_sha256": "70661ebd34370adbc632f6c254a7092c6e417a4cfc0aeb43b055eaf785af5ec0"
+    },
+    {
+      "event_id": "waf-20260706-096143",
+      "origin": "logs/edge/waf_20260706.jsonl:92171",
+      "record_sha256": "bdd3f4ba8c28219cd2a6a06db48eff724873ae025ad2430389e05a5789c9c4c8"
+    },
+    {
+      "event_id": "waf-20260706-096144",
+      "origin": "logs/edge/waf_20260706.jsonl:92174",
+      "record_sha256": "e8a36ab1140df3c5952db9bf8a86d20cbcd512bae952768f3030ba6a3bf2d95a"
+    },
+    {
+      "event_id": "waf-20260706-096145",
+      "origin": "logs/edge/waf_20260706.jsonl:92178",
+      "record_sha256": "8fb0bcfb22487efd3c455673344ff0814e4ef524c5dc0f04e682400e691a4d91"
+    },
+    {
+      "event_id": "waf-20260706-096146",
+      "origin": "logs/edge/waf_20260706.jsonl:92322",
+      "record_sha256": "38598f3623263052d3dbcc3e1ca68e23145c6dda77cda91c72286ed1e8df57f9"
+    },
+    {
+      "event_id": "winsec-ad-20260706-000001",
+      "origin": "logs/windows/ad-dc-01_security.jsonl:24073",
+      "record_sha256": "17981c6fd31126cfc1d4d71f6d194ca4b7958fe1d17cbe8f107a65a2be60ec26"
+    },
+    {
+      "event_id": "winsec-ad-20260706-000002",
+      "origin": "logs/windows/ad-dc-01_security.jsonl:24074",
+      "record_sha256": "dfe3a28210cf8f3b42af89f1e9755c5aaec929870f664b03d53c0cedcd12b2c2"
+    },
+    {
+      "event_id": "winsec-fil-20260706-024848",
+      "origin": "logs/windows/file-srv-01_security.jsonl:24236",
+      "record_sha256": "54aa3905ab70c77181468c8555e56110468f9ac78417098d98de8756033fca47"
+    },
+    {
+      "event_id": "winsec-win-20260706-024842",
+      "origin": "logs/windows/win-admin-01_security.jsonl:24100",
+      "record_sha256": "fd859fa1158d9424e62f7204603bf4e6fceef3975d175568983871f56523bd4e"
+    },
+    {
+      "event_id": "winsec-win-20260706-024843",
+      "origin": "logs/windows/win-admin-01_security.jsonl:24101",
+      "record_sha256": "29c9bbd323d43735d8b9fc141ce4ed00dae2196bbb87cf9b151d3eb619ced109"
+    }
+  ]
+}
